@@ -5,7 +5,7 @@ if(!defined('ABSPATH')){
     exit;
 }
 
-
+require_once("vite.php");
 require_once("init.php");
 
 
