@@ -2,3 +2,10 @@ body{
     margin:0;
     background-color:green;
 }
+
+
+@import "./home";
+@import "./listing";
+@import "./product-page";
+@import "./cart";
+@import "./checkout";

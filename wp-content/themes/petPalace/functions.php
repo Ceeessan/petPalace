@@ -7,7 +7,13 @@ if(!defined('ABSPATH')){
 
 require_once("vite.php");
 require_once("init.php");
-
+require_once("shortcodes.php");
+require_once("settings.php");
+require_once("home.php");
+require_once("listing.php");
+require_once("product-page.php");
+require_once("cart.php");
+require_once("checkout.php");
 
 //Initialize theme
 require_once(get_template_directory() . "/init.php");
