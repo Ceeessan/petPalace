@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    font-family: 'Roboto-Regular';
+    
+    margin: 0 20px;
+    margin-top: 20px;
+
+
+    .woocommerce-products-header{
+        display:none //Få bort denna med hook
+    }
+
+    .woocommerce-breadcrumb{
+        color: #272727;
+    }
+    
+
+    ul.products{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        width: calc(100% + 10px);
+        list-style: none;
+        margin-left: -5px;
+       li.product{
+            width: calc(25% - 10px);
+            padding: 20px;
+            margin: 5px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 0 7px rgba(0,0,0,0.2);
+            a{}}}}
+
+
+            @media (max-width: 610px){}

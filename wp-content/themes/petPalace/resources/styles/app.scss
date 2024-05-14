@@ -1,8 +1,8 @@
-body{
-    margin:0;
-    background-color:green;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 
 @import "./header";
@@ -12,3 +12,4 @@ body{
 @import "./product-page";
 @import "./cart";
 @import "./checkout";
+@import "./fonts";
