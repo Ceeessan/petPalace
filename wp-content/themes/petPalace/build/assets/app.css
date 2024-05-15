@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: "Roboto-Regular";
+  margin: 0 20px;
+  margin-top: 20px;
+}
+
+main .woocommerce-products-header {
+  display: none;
+}
+
+main .woocommerce-breadcrumb {
+  color: #272727;
+}
+
+main ul.products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  width: calc(100% + 10px);
+  list-style: none;
+  margin-left: -5px;
+}
+
+main ul.products li.product {
+  width: calc(25% - 10px);
+  padding: 20px;
+  margin: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(./Roboto-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url(./Roboto-Medium.ttf) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(./Roboto-Regular.ttf) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(./Roboto-Light.ttf) format("truetype");
+  font-weight: 300;
+}
