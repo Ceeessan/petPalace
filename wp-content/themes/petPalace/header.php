@@ -11,11 +11,22 @@
     <?php wp_body_open(); ?>
 
     <header>
-        <div class="header-menu">
+    <div class="header-menu">
             <?php
             $menu= array(
                 'theme_location' => 'mainmenu',
                 'menu_id' => 'primary-menu',
+                'container' => 'nav',
+                'container_class' => 'menu'
+            );
+
+            wp_nav_menu($menu);
+            ?>
+        </div> <div class="header-menu">
+            <?php
+            $menu= array(
+                'theme_location' => 'secondarymenu',
+                'menu_id' => 'secondary-menu',
                 'container' => 'nav',
                 'container_class' => 'menu'
             );
