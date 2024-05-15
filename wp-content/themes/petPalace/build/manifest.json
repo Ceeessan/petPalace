@@ -1,0 +1,28 @@
+{
+  "resources/fonts/Roboto/Roboto-Bold.ttf": {
+    "file": "assets/Roboto-Bold.ttf",
+    "src": "resources/fonts/Roboto/Roboto-Bold.ttf"
+  },
+  "resources/fonts/Roboto/Roboto-Light.ttf": {
+    "file": "assets/Roboto-Light.ttf",
+    "src": "resources/fonts/Roboto/Roboto-Light.ttf"
+  },
+  "resources/fonts/Roboto/Roboto-Medium.ttf": {
+    "file": "assets/Roboto-Medium.ttf",
+    "src": "resources/fonts/Roboto/Roboto-Medium.ttf"
+  },
+  "resources/fonts/Roboto/Roboto-Regular.ttf": {
+    "file": "assets/Roboto-Regular.ttf",
+    "src": "resources/fonts/Roboto/Roboto-Regular.ttf"
+  },
+  "resources/scripts/app.js": {
+    "file": "assets/app.js",
+    "isEntry": true,
+    "src": "resources/scripts/app.js"
+  },
+  "resources/styles/app.scss": {
+    "file": "assets/app.css",
+    "isEntry": true,
+    "src": "resources/styles/app.scss"
+  }
+}
