@@ -41,23 +41,21 @@
 @media screen and (max-width: 767px) {
     .woocommerce-cart-form__cart-item{
         border-bottom: 1px solid #DBDBDB;
+        height: 170px;
         
         .product-name{
-            margin-top: -155px;
+            margin-top: -200px;
+            max-width: 50%;
+
             a{
                 font-size: 14px;
-            }
-        }
 
-        .product-quantity{
-            .quantity{
-                padding-bottom: 20px;
             }
         }
 
         .product-subtotal{
             font-family: "Roboto-Bold";
-            font-size: 16px;
+            font-size: 14px;
         }
 
     }
@@ -70,7 +68,7 @@
 
     .woocommerce table.shop_table_responsive tr td, .woocommerce-page table.shop_table_responsive tr td{
         text-align: left !important;
-        margin-left: 150px;
+        margin-left: 160px;
     }
 
 
@@ -81,7 +79,7 @@
 
     .woocommerce a.remove{
         width: auto;
-        font-size: 2em;
+        font-size: 1.5em;
         margin-left: 180px;
 
         &:hover{
@@ -94,12 +92,12 @@
         border-top: none;
     }
 
-
     .woocommerce table.cart{
         img{
             width: auto;
-            height: 120px;
-            margin-top: -55px;
+            height: 135px;
+            margin-top: -50px;
+            margin-bottom: 30px;
             margin-left: 20px;
             background-color:#F9F6EC;
             display: block;
