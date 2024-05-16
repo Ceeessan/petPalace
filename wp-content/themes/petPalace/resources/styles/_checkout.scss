@@ -1,11 +1,25 @@
+form.checkout .woocommerce-checkout{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#customer_details{
+}
+
+#order_review{
+    width: 40%;
+}
+
+
+
+
 @media screen and (max-width: 767px) {
-
-
 form.checkout.woocommerce-checkout{
     font-family: "Roboto-Light";
 
     .woocommerce-billing-fields__field-wrapper{
         border-bottom: 1px solid #DBDBDB;
+        padding-bottom: 10px;
 
         #billing_last_name_field{
             width: 40%;
@@ -88,10 +102,10 @@ form.checkout.woocommerce-checkout{
       }
 
       .woocommerce-checkout-review-order-table{
-        border: 1px solid #DBDBDB;
         margin: 20px 0;
         font-size: 14px;
         font-weight: 400;
+
 
         .order-total{
             font-size: 16px;
@@ -128,7 +142,8 @@ form.checkout.woocommerce-checkout{
       }
 
       #order_review{
-        margin: 20px;
+        padding: 20px;
+        width: 100%;
       }
 }
 }
