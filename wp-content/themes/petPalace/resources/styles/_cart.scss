@@ -43,6 +43,8 @@ button[name="update_cart"] {
 a.button.alt{
     background-color: #82A2D7 !important;
     width: 90%;
+    padding: 15px;
+    border-radius: 8px;
 
     &:hover{
         background-color: #6388C5 !important;
