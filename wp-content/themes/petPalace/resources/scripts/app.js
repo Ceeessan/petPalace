@@ -1,14 +1,19 @@
 // alert("Hello world");
-document.addEventListener('DOMContentLoaded', function () {
-    var couponInput = document.getElementById('coupon_code');
-    var applyCouponButton = document.getElementById('apply_coupon_button');
+document.addEventListener('DOMContentLoaded', function() {
+    const couponInput = document.querySelector('#coupon_code');
+    const applyCouponButton = document.querySelector('button[name="apply_coupon"]');
 
-    couponInput.addEventListener('input', function () {
+    function toggleCouponButton() {
         if (couponInput.value.trim() === '') {
             applyCouponButton.disabled = true;
         } else {
             applyCouponButton.disabled = false;
         }
-    });
+    }
+
+    toggleCouponButton();
+
+    couponInput.addEventListener('input', toggleCouponButton);
 });
+
 
