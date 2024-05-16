@@ -1,14 +1,13 @@
 
 main{
     font-family: 'Roboto-Regular';
-    
     margin: 0 80px;
     margin-top: 20px;
     padding-bottom: 150px;
 
 
     .woocommerce-products-header{
-        display:none ;//Få bort denna med hook
+        display:none ;
     }
 
     .woocommerce-breadcrumb{
@@ -23,7 +22,6 @@ main{
         margin-top: 10px;
         margin-bottom: 10px;
         width: calc(100% - 20px);
-        height: 370px;
         position:relative;
         
 
@@ -41,10 +39,11 @@ main{
 
         .sale-banner-listing-img{
             width: 100%;
-            height: 100%;
+            height: 260px;
             border-radius: 5px;
         }
     }
+
 
     .icons-filter-div{
         display:flex;
@@ -133,7 +132,6 @@ main{
             padding: 5px;
             font-size: 20px;
             background-color: #F2F5F7;
-            // border: 1px solid #272727;
             box-shadow: 0 1px 7px rgba(0,0,0,0.2);
             border-radius: 2px;
         }
@@ -147,8 +145,6 @@ main{
     }
 
 
-   
-    
 
     ul.products{
         display: flex;
@@ -157,11 +153,10 @@ main{
         width: calc(100% + 10px);
         list-style: none;
         margin-left: -5px;
-        
-
 
        li.product{
             width: calc(25% - 10px);
+            height: 380px;
             padding: 20px;
             margin: 5px;
             box-sizing: border-box;
@@ -173,6 +168,79 @@ main{
                 width: 100%;
                 background-color: #F9F6EC;
                 border-radius: 5px;
+                height: 210px;
+                margin-bottom: 5px;
+            }
+
+            a{
+                text-decoration: none;
+                display:flex;
+                flex-direction: column;
+                
+            }
+
+            .onsale{
+                margin-top: 3px;
+                margin-left: 3px;
+                padding: 3px;
+                position: absolute;
+                background-color: #F12B2C;
+                color: #F8F8F8;
+                border-radius: 2px;
+                font-size: 12px;
+                
+            }
+
+            .woocommerce-loop-product__title{
+                color: #272727;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .woocommerce-Price-amount{
+                color: #5b5b5b;
+                text-decoration:none;
+
+                bdi{
+                    text-decoration:none;
+                    text-decoration-color: #C84242;
+                }
+                
+                
+                
+            }
+
+            .button{
+                margin-top: 30px;
+                color: #F8F8F8;
+                background-color: #00A544;
+                height: 25px;
+                width: calc(100%);
+                text-align: center;
+                vertical-align: center;
+                border-radius: 5px;
+                padding-top: 5px;
+                text-transform: uppercase;
+                font-family: 'Roboto-Light';
+                font-size: 12px;
+                
+
+
+            }
+
+            .added_to_cart{
+                margin-top: 10px;
+                color: #F8F8F8;
+                background-color: #00A544;
+                height: 25px;
+                width: calc(100%);
+                text-align: center;
+                vertical-align: center;
+                border-radius: 5px;
+                padding-top: 5px;
+                text-transform: uppercase;
+                font-family: 'Roboto-Light';
+                font-size: 12px;
             }
 
             }
@@ -190,7 +258,7 @@ main{
             
                     .sale-banner-listing-img{
                 
-                        height: 100%;
+                        height: 220px;
                    
                     }
                 }
@@ -243,7 +311,7 @@ main{
                         }
                 
                         .sale-banner-listing-img{
-                        height: 100%;
+                        height: 180px;
                         }
                     }
 
