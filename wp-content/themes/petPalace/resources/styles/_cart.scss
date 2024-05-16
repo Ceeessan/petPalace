@@ -152,6 +152,11 @@ a.button.alt{
 
 
 @media screen and (max-width: 767px) {
+    .cart-title{
+        font-size: 16px;
+        margin: 0;
+    }
+
     .cart-form-wrapper{
         display: flex;
         flex-direction: column;
