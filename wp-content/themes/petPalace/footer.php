@@ -5,8 +5,8 @@
             <span> Kontakta oss
                 <?php
                 $menu = array(
-                    'theme_location' => 'Footer_kontakt',
-                    'menu_id' => 'Footer_kontakt',
+                    'theme_location' => 'footer_contact',
+                    'menu_id' => 'footer_contact',
                     'container' => 'nav',
                     'container_class' => 'menu'
                 );
@@ -31,8 +31,8 @@
             <span> 
                 <?php
                 $menu = array(
-                    'theme_location' => 'footer_kundservice',
-                    'menu_id' => 'footer_kundservice',
+                    'theme_location' => 'footer_info',
+                    'menu_id' => 'footer_info',
                     'container' => 'nav',
                     'container_class' => 'menu'
                 );

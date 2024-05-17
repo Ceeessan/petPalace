@@ -14,9 +14,12 @@ add_action('wp_enqueue_scripts', 'petPalace_enqueue');
 function petPalace_init(){
     $menu = array(
         'mainmenu' => 'mainmenu',
-        'footer_info' => 'footer_info',
+        'secondarymenu' => 'secondarymenu',
         'footer_contact' => 'footer_contact',
-        'footer_socialamedier' => 'footer_socialamedier'
+        'footer_socialamedier' => 'footer_socialamedier',
+        'footer_info' => 'footer_info',
+        
+        
     );
     register_nav_menus($menu);
 }

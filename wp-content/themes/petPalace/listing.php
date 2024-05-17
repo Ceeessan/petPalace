@@ -85,35 +85,16 @@ function get_searchbar() {
 add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
 
-//filtrering som inte riktigt funkar.. fortsätter vidare med produkterna.
-// function add_filter_and_catalog($sortby) {
-//     if (is_array($sortby)) {
-//         echo '<div class="filter-icon-container">
-        
-//         <div > <svg class="filter-icon-listing" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z"/></svg> </div>';
-
-//         '<div class= "sorting-dropdown-listing">' .
-//         $sortby['menu_order'] = __( 'Standard sortering', 'woocommerce' );
-//         $sortby['popularity'] = __( 'Sortera efter popularitet', 'woocommerce' );
-//         $sortby['rating'] = __( 'Sortera efter genomsnittligt betyg', 'woocommerce' );
-//         $sortby['date'] = __( 'Sortera efter senaste', 'woocommerce' );
-//         $sortby['price'] = __( 'Sortera efter pris: högst till lägst', 'woocommerce' );
-
-
-//         echo '<select name="orderby" class="orderby">';
-//         foreach ($sortby as $key => $value) {
-//             echo '<option value="' . esc_attr($key) . '">' . esc_html($value) . '</option>';
-//         }
-//         echo '</select> 
-//         </div>
-//         </div>';
-
-//         return $sortby;
-//     }
-// }
-
-// add_filter( 'woocommerce_catalog_orderby', 'add_filter_and_catalog' );
-
+function add_filter_icon() {
+    echo '<div class="filter-icon-container">
+            <div>
+                <svg class="filter-icon-listing" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="none" stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z"/>
+                </svg>
+            </div>
+          </div>';
+}
+add_action( 'woocommerce_before_shop_loop', 'add_filter_icon' );
 
 
 
