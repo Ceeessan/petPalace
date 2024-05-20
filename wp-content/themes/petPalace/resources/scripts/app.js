@@ -1,5 +1,7 @@
 // alert("Hello world");
-document.addEventListener('DOMContentLoaded', function() {
+
+//Listing:
+document.addEventListener('DOMContentLoaded', function () {
     const couponInput = document.querySelector('#coupon_code');
     const applyCouponButton = document.querySelector('button[name="apply_coupon"]');
 
