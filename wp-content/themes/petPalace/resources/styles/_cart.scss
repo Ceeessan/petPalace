@@ -4,22 +4,36 @@
     font-size: 32px;
 }
 
-.woocommerce table.shop_table_responsive tr td, .woocommerce-page table.shop_table_responsive tr td, .woocommerce table.shop_table tbody th{
+.woocommerce table.shop_table_responsive tr td, 
+.woocommerce-page table.shop_table_responsive tr td, 
+.woocommerce table.shop_table tbody th{
     border-top: none;
-
-}
-
-.shipping-calculator-button{
-    display: none;
 }
 
 .cart-form-wrapper{
     display: flex;
     margin: 0 auto;
-    width: 95%;  
+    width: 95%;
+
+    .shipping-calculator-button{
+        display: none;
+    }
 
     .custom-div{
         width: 140%;
+        .product-thumbnail{
+            padding: 20px;
+        }
+
+        .product-name{
+            width: 30%;
+            a{
+                text-decoration: none;
+                font-family: "Roboto-Bold";
+                color: #3B644C;
+            }
+        }
+
     }
 
     .cart-collaterals{
@@ -39,8 +53,9 @@
 }   
 
 .woocommerce table.cart td.actions{
-    .coupon{    
-        margin: 0px 10px 10px 50px;
+    .coupon{
+        margin-bottom: 10px;
+        margin-left: 50px;
     }
 
     input{
@@ -74,7 +89,6 @@
 .woocommerce-cart-form__cart-item{
     a.remove{
     font-size: 2em;
-    text-align: end;
     width: 100%;
     &:hover{
         background-color: white;
@@ -133,13 +147,6 @@ button[name="update_cart"] {
     }
 }
 
-.product-name{
-    a{
-        text-decoration: none;
-        font-family: "Roboto-Bold";
-        color: #3B644C;
-    }
-}
 
 a.button.alt{
     background-color: #82A2D7 !important;
@@ -169,8 +176,16 @@ a.button.alt{
         margin: inherit;
         width: inherit;
 
+        .product-remove{
+            left: unset;
+            position: static;
+        }
+
         .custom-div{
             width:inherit;
+            .product-name{
+                width: 100%;
+            }
         }
 
         .cart-collaterals{

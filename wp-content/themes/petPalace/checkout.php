@@ -55,3 +55,4 @@ add_filter( 'woocommerce_checkout_coupon_message', 'have_coupon_message');
 function have_coupon_message() {
    return '<div class="coupon-message-wrapper"></i><a href="#" class="showcoupon">Har du en rabattkod?<i class="fa-solid fa-angle-down"></i></a></div>';
 }
+

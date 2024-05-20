@@ -1,24 +1,83 @@
-form.checkout .woocommerce-checkout{
+.woocommerce-checkout{
+    margin: 20px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .col-1{
+        width: 50%;
+    } 
+
+    #order_review{
+        width: 40%;
+        margin-top: 20px;
+        #order_review_heading{
+            text-align: center;
+        }
+        .woocommerce-checkout-review-order-table{
+            margin-top: 20px;
+        }
+        img{
+            width: 30%;
+            background-color: #F9F6EC;
+        }
+    }
 }
 
-#customer_details{
-}
+.woocommerce-billing-fields{
+    h3{
+        text-align: center;
+        margin: 20px 0;
+    }
 
-#order_review{
-    width: 40%;
+    input[type=text] {
+    padding: 7px;
+    margin: 8px 0;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    &:focus {
+        border: 1px solid #3B644C;
+      }
+  }
+
+  input[type=tel] {
+    padding: 7px;
+    margin: 8px 0;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    &:focus {
+        border: 1px solid #3B644C;
+      }
+  }
+
+  input[type=email] {
+    padding: 7px;
+    margin: 8px 0;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    &:focus {
+        border: 1px solid #3B644C;
+      }
+  }
 }
 
 .woocommerce-info{
     margin: auto;
-    border-top: 2px solid #3B644C;
+    border-top: none;
     position: inherit;
-    padding: 14px 0px 0px 16px;
+    padding: 12px 0px 0px 0px;
     background-color: transparent;
 
     .coupon-message-wrapper .fa-angle-down {
-        margin-left: 50%; 
+        margin-left:60%; 
         font-size: 15px; 
     }
 
@@ -66,7 +125,13 @@ form.checkout_coupon.woocommerce-form-coupon{
 
 @media screen and (max-width: 767px) {
 form.checkout.woocommerce-checkout{
+    margin: unset;
+    display: block;
     font-family: "Roboto-Light";
+
+    .col-1{
+        width: inherit;
+    }
 
     .woocommerce-billing-fields__field-wrapper{
         border-bottom: 1px solid #DBDBDB;
@@ -147,11 +212,6 @@ form.checkout.woocommerce-checkout{
         }
       }
 
-      #order_review_heading{
-        margin-top: 20px;
-        text-align: center;
-      }
-
       .woocommerce-checkout-review-order-table{
         margin: 20px 0;
         font-size: 14px;
@@ -195,6 +255,17 @@ form.checkout.woocommerce-checkout{
       #order_review{
         padding: 20px;
         width: 100%;
+        img{
+            width: inherit;
+        }
+      }
+
+      .woocommerce-info{
+        border-top: 2px solid #3B644C;
+
+        .coupon-message-wrapper .fa-angle-down {
+            margin-left: 50%; 
+        }
       }
 }
 }
