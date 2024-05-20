@@ -162,8 +162,8 @@ main{
         margin-left: -5px;
 
        li.product{
-            // width: calc(25% - 20px);
-            // height: 300px;
+            width: calc(25% - 20px);
+            height: 300px;
             padding: 20px;
             margin: 5px;
             box-sizing: border-box;
@@ -232,8 +232,7 @@ main{
                     background-size: auto 100%;
                     background-repeat: repeat-x;
                     margin-top: 10px;
-                    display:flex;      
-                    
+                    display:flex;         
                 }
             }
 

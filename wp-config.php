@@ -1,5 +1,7 @@
 <?php
-$_SERVER["HTTPS"] = "on";
+// $_SERVER["HTTPS"] = "on";
+define('FORCE_SSL_ADMIN', true);
+
 /**
  * The base configuration for WordPress
  *
