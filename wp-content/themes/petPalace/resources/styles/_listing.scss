@@ -24,6 +24,7 @@ main{
         width: calc(100% - 20px);
         position:relative;
         
+
         .banner-text-listing{
             position: absolute;
             top: 50%;
@@ -161,8 +162,8 @@ main{
         margin-left: -5px;
 
        li.product{
-            width: calc(25% - 20px);
-            height: 390px;
+            // width: calc(25% - 20px);
+            // height: 300px;
             padding: 20px;
             margin: 5px;
             box-sizing: border-box;
