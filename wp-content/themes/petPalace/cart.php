@@ -23,15 +23,6 @@ function unset_shipping_when_free_is_available_all_zones( $rates, $package ) {
    } 
 }
 
-//Tar bort "Cart totals"
-add_filter( 'gettext', 'change_cart_totals_text', 20, 3 );
-function change_cart_totals_text( $translated, $text, $domain ) {
-    if( is_cart() && $translated == 'Cart totals' ){
-        $translated = '';
-    }
-    return $translated;
-}
-
 //Byter texten på "Proceed to checkout"-btn
 function woocommerce_button_proceed_to_checkout() { ?>
    <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
@@ -95,4 +86,3 @@ function ecommercehints_update_cart_on_quantity_change() { ?>
 	} );
 	</script>
 <?php }
-

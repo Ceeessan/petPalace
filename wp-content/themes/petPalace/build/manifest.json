@@ -15,6 +15,10 @@
     "file": "assets/Roboto-Regular.ttf",
     "src": "resources/fonts/Roboto/Roboto-Regular.ttf"
   },
+  "resources/images/star_filled.png": {
+    "file": "assets/star_filled.png",
+    "src": "resources/images/star_filled.png"
+  },
   "resources/scripts/app.js": {
     "file": "assets/app.js",
     "isEntry": true,

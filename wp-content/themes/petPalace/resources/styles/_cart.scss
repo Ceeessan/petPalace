@@ -9,17 +9,28 @@
 
 }
 
+.shipping-calculator-button{
+    display: none;
+}
 
 .cart-form-wrapper{
     display: flex;
     margin: 0 auto;
-    width: 80%;  
+    width: 95%;  
 
     .custom-div{
         width: 140%;
     }
 
     .cart-collaterals{
+        margin-left: -100px;
+        .cart_totals{
+            width: 70%;
+
+            th{
+                padding: 20px;
+            }
+        }
 
         .cart_totals.calculated_shipping{
             width: 80%;
@@ -55,12 +66,6 @@
         padding: 12px;
         &:hover{    
             background-color: #008537;
-        }
-        &:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            color: #666;
-            padding: 12px;
         }
     }
 }
@@ -99,6 +104,10 @@ button[name="update_cart"] {
     margin: 0;
 }
 
+.quantity{
+    display: inline-block;
+}
+
 .product-quantity input[type="number"] {
     width: 50px;
     padding: 5px;
@@ -117,7 +126,7 @@ button[name="update_cart"] {
     background-color: #00A544;
     color: #fff;
     border: none;
-    padding: 6px 15px; 
+    padding: 6px 15px;
     cursor: pointer;
     &:hover{    
         background-color: #008537;
@@ -167,6 +176,10 @@ a.button.alt{
         .cart-collaterals{
             font-family: "Roboto-Light";
             font-size: 14px;
+
+            .cart_totals{
+                width: inherit;
+            }
 
             .cart_totals.calculated_shipping{
                 width: inherit;
@@ -291,6 +304,11 @@ a.button.alt{
     .woocommerce table.shop_table{
         border: none;
         margin: 0;
+        padding-top: 10px;
+
+        .cart-subtotal, .woocommerce-shipping-totals, .order-total{
+            padding: 0 10px;
+        }
     }
 
     .wc-proceed-to-checkout{

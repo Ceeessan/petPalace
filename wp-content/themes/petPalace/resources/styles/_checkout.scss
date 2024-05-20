@@ -10,8 +10,59 @@ form.checkout .woocommerce-checkout{
     width: 40%;
 }
 
+.woocommerce-info{
+    margin: auto;
+    border-top: 2px solid #3B644C;
+    position: inherit;
+    padding: 14px 0px 0px 16px;
+    background-color: transparent;
 
+    .coupon-message-wrapper .fa-angle-down {
+        margin-left: 50%; 
+        font-size: 15px; 
+    }
 
+    a{
+        color:#3B644C;
+    }
+}
+
+form.checkout_coupon.woocommerce-form-coupon{
+    margin: 5px 0;
+    border: none;
+    padding: 5px;
+    .form-row.form-row-first{
+        width: 40%;
+        input{
+            margin-left: 10px;
+            padding: 5px;
+            border: 1px solid #DBDBDB;
+            font-size: 14px;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+            border-radius: 5px;
+            &:focus {
+                border: 1px solid #3B644C;
+            }
+        }
+    }
+    .form-row.form-row-last{
+        width: 60%;
+        button{
+            margin-top: 0;
+            margin-left: 10px;
+            background-color:#00A544 !important;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+            padding: 7px;
+            &:hover{    
+                background-color: #008537 !important;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 767px) {
 form.checkout.woocommerce-checkout{
