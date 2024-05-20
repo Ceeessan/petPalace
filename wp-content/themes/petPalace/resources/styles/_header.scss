@@ -1,26 +1,127 @@
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f8f8f8;
-}
+header {
+    .header-container {
+        background-color: #3B644C;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        
+        .primary-header-menu {
+            display: flex;
+            align-items: center;
+            position: relative;
 
-.site-branding {
-    flex: 1;
-}
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                background: none;
+                border: none;
+                cursor: pointer;
 
-.header-menus {
-    display: flex;
-    flex: 2;
-    justify-content: space-between;
-}
+                .hamburger-box {
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                }
 
-.header-menu nav {
-    margin: 0 1rem;
-}
+                .hamburger-inner,
+                .hamburger-inner::before,
+                .hamburger-inner::after {
+                    width: 24px;
+                    height: 2px;
+                    background-color: #fff;
+                    position: absolute;
+                    transition: all 0.3s;
+                }
 
-.header-cart {
-    flex: 1;
-    text-align: right;
+                .hamburger-inner::before,
+                .hamburger-inner::after {
+                    content: '';
+                }
+
+                .hamburger-inner::before {
+                    top: -8px;
+                }
+
+                .hamburger-inner::after {
+                    bottom: -8px;
+                }
+
+                &.is-active .hamburger-inner {
+                    background-color: transparent;
+                }
+
+                &.is-active .hamburger-inner::before {
+                    transform: rotate(45deg);
+                    top: 0;
+                }
+
+                &.is-active .hamburger-inner::after {
+                    transform: rotate(-45deg);
+                    bottom: 0;
+                }
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #3B644C;
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem;
+
+                .menu {
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 0.5rem 0;
+                    }
+                }
+            }
+
+            .hamburger.is-active + .nav-menu {
+                display: flex;
+            }
+        }
+
+        .site-branding {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-height: 100px;
+            }
+        }
+
+        .secondary-header-menu {
+            display: flex;
+            align-items: center;
+
+            .header-icons {
+                display: flex;
+                align-items: center;
+
+                a {
+                    margin-left: 1rem;
+                    img {
+                        height: 24px;
+                        width: 24px;
+                    }
+                }
+            }
+        }
+    }
 }
