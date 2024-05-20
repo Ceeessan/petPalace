@@ -25,3 +25,19 @@ function petPalace_init(){
 }
 
 add_action('after_setup_theme', 'petPalace_init');
+
+
+
+//Lägga till widget för "relevanta produkter" i listing
+function custom_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Widget Area Name', 'textdomain' ),
+        'id'            => 'widget-area-id',
+        'description'   => __( 'Beskrivning av widget-området', 'textdomain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'custom_widgets_init' );

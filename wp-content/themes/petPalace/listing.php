@@ -96,8 +96,70 @@ function add_filter_icon() {
 }
 add_action( 'woocommerce_before_shop_loop', 'add_filter_icon' );
 
+// Tar bort stjärnbetyg från produktlisting
+function disable_star_ratings_from_product_listing() {
+    global $wp_filter;
+    if ( isset( $wp_filter['woocommerce_after_shop_loop_item_title']->callbacks ) ) {
+        foreach ( $wp_filter['woocommerce_after_shop_loop_item_title']->callbacks as $priority => $hooks ) {
+            foreach ( $hooks as $hook => $attributes ) {
+                if ( strpos( $hook, 'woocommerce_template_loop_rating' ) !== false ) {
+                    remove_action( 'woocommerce_after_shop_loop_item_title', $hook, $priority );
+                }
+            }
+        }
+    }
+}
+add_action( 'init', 'disable_star_ratings_from_product_listing' );
+
+
+// Lägger till egen design på betyg på hemsidan
+function petPalace_add_star_rating() {
+    global $product;
+    $rating = $product->get_average_rating();
+    $width = ( $rating / 5 ) * 100;
+
+    echo "<div class='rating-with-stars' >
+    <div class='fill' style='width:" . $width . "%;'> </div>
+    </div>";
+}
+
+add_action( 'woocommerce_after_shop_loop_item', 'petPalace_add_star_rating', 5 );
 
 
 
+
+
+//________________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
+
+//Denna ska fixas!!!! SKa lägga till text i settings.
+function display_member_banner(){
+    
+    $display_sale_banner = get_option('display_sale_banner');
+    
+    // Om checkboxen är markerad, visas meddelandet
+    if ($display_sale_banner) {
+        $store_message = get_option('store_message');
+        if (!empty($store_message)) {
+            echo '<div class="member-div-listing">';
+            echo '<div class="banner-text-listing">' . $store_message . '</div>';
+            echo '<div class="sale-banner-listing-img-wrapper">';
+            echo '<img src="' . get_template_directory_uri() . '/resources/images/member-dog-human.png" class="sale-banner-listing-img">';
+            echo '</div>';
+            echo '</div>';
+        } 
+    }
+}
+add_action( 'woocommerce_after_shop_loop', 'display_member_banner');
+
+
+function custom_add_recommendations() {
+  if ( is_active_sidebar( 'widget-area-id' ) ) : ?>
+        <div id="primary-sidebar" class="widget-area">
+            <?php dynamic_sidebar( 'widget-area-id' ); ?>
+        </div><!-- #primary-sidebar -->
+    <?php endif; 
+    
+}
+add_action( 'woocommerce_after_shop_loop', 'custom_add_recommendations', 10 );
 
 ?>
