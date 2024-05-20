@@ -1,0 +1,26 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
+}
+
+.site-branding {
+    flex: 1;
+}
+
+.header-menus {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.header-menu nav {
+    margin: 0 1rem;
+}
+
+.header-cart {
+    flex: 1;
+    text-align: right;
+}
