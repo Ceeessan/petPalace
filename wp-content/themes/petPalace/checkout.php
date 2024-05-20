@@ -1,6 +1,10 @@
 <?php
-//Tar bort rabattkodsformuläret som finns i checkout
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 ); 
+
+function enqueue_font_awesome() {
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
 
@@ -30,4 +34,24 @@ function product_image_checkout( $name, $cart_item, $cart_item_key ) {
                 . $thumbnail .
             '</div>'; 
     return $image . $name;
+}
+
+//Flyttar på rabattkoden
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+add_action( 'woocommerce_review_order_after_cart_contents', 'woocommerce_checkout_coupon_form_custom' );
+function woocommerce_checkout_coupon_form_custom() {
+    echo '<tr class="coupon-form"><td colspan="2">';
+    
+    wc_get_template(
+        'checkout/form-coupon.php',
+        array(
+            'checkout' => WC()->checkout(),
+        )
+    );
+    echo '</tr></td>';
+}
+
+add_filter( 'woocommerce_checkout_coupon_message', 'have_coupon_message');
+function have_coupon_message() {
+   return '<div class="coupon-message-wrapper"></i><a href="#" class="showcoupon">Har du en rabattkod?<i class="fa-solid fa-angle-down"></i></a></div>';
 }
