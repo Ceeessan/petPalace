@@ -23,6 +23,7 @@
     }
 
     .cart-collaterals{
+        margin-left: -100px;
         .cart_totals{
             width: 70%;
 
@@ -103,6 +104,10 @@ button[name="update_cart"] {
     margin: 0;
 }
 
+.quantity{
+    display: inline-block;
+}
+
 .product-quantity input[type="number"] {
     width: 50px;
     padding: 5px;
@@ -121,7 +126,7 @@ button[name="update_cart"] {
     background-color: #00A544;
     color: #fff;
     border: none;
-    padding: 6px 15px; 
+    padding: 6px 15px;
     cursor: pointer;
     &:hover{    
         background-color: #008537;
