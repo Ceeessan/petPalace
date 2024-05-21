@@ -1,11 +1,40 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
 .footer-container {
     background-color: #3B644C;
-    color: #fff;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 4rem;
     text-align: center;
+    width: 100%;
+    margin-top: auto; // Trycker ner footern till botten
+}
+
+.footer-container h2 {
+    color: #e2c153;
+    padding: 40px;
+}
+
+.footer-social {
+    padding-bottom: 40px;
+    padding-top: 35px;
+    color: #ffffff;
+}
+
+.footer-copyright {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .footer-logo {
