@@ -70,7 +70,16 @@
 .woocommerce table.cart td.actions{
     .coupon{
         margin-bottom: 10px;
-        margin-left: 50px;
+        margin-left: 10px;
+        width: 100%;
+
+        .input-text{
+            width: 21%;
+            float: left;
+        }
+        .button{
+            float: left;
+        }
     }
 
     input{
@@ -232,6 +241,7 @@ a.button.alt{
             font-family: "Roboto-Light";
             font-size: 14px;
             margin-left: inherit;
+            margin-top: 10px;
 
             .cart_totals{
                 width: inherit;
@@ -357,6 +367,9 @@ a.button.alt{
     .woocommerce table.cart td.actions{
         .coupon{    
             margin: inherit;
+            .input-text{
+                width: 49%;
+            }
         }
     }
     
