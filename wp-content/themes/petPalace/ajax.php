@@ -64,15 +64,17 @@ function display_result_count_and_button() {
         $products_per_page = $wp_query->get('posts_per_page');
         $current_count = $wp_query->post_count;
 
-        echo '<div class="custom-result-count">';
-        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
-        echo '</div>';
-
         if ($total_products > $products_per_page) {
             echo '<div class="button-container">';
             echo '<button class="load-more-button" id="load-more"> + </button>';
             echo '</div>';
         }
+
+        echo '<div class="custom-result-count">';
+        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
+        echo '</div>';
+
+ 
     }
 }
 add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');

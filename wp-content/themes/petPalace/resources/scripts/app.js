@@ -18,3 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
     couponInput.addEventListener('input', toggleCouponButton);
 });
 
+//För ikonerna katt|hund|gnagare|fågel
+jQuery(document).ready(function ($) {
+    $('.icon-animals').on('click', function () {
+        var category = $(this).data('category');
+        var url = ajax_variables.siteUrl + '/product-category/' + category;
+        window.location.href = url;
+    });
+});
