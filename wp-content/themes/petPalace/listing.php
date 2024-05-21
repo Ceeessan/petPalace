@@ -21,6 +21,10 @@ function display_sale_banner(){
 add_action( 'woocommerce_before_shop_loop', 'display_sale_banner');
 
 
+//Har tagit bort och lägger nu till visade resultat längre ner på sidan. 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+
 
 // Lägger till ikonerna, dessa ska ha filtrerings-funktion.
 function display_icons_filter(){
@@ -50,17 +54,6 @@ function display_icons_filter(){
 
 add_action( 'woocommerce_before_shop_loop', 'display_icons_filter');
 
-
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-
-//Har tagit bort och lägger nu till visade resultat längre ner på sidan. 
-
-function custom_result_count_placement() {
-    echo '<div class="custom-result-count">';
-    woocommerce_result_count();
-    echo '</div>';
-}
-add_action( 'woocommerce_after_shop_loop', 'custom_result_count_placement' );
 
 
 //Sök-ruta
@@ -129,7 +122,9 @@ add_action( 'woocommerce_after_shop_loop_item', 'petPalace_add_star_rating', 5 )
 
 
 
-//________________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
+//____________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
+
+
 
 //Denna ska fixas!!!! SKa lägga till text i settings.
 function display_member_banner(){
@@ -149,7 +144,7 @@ function display_member_banner(){
         } 
     }
 }
-add_action( 'woocommerce_after_shop_loop', 'display_member_banner');
+add_action( 'woocommerce_after_main_content', 'display_member_banner');
 
 
 function custom_add_recommendations() {

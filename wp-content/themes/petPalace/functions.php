@@ -15,6 +15,7 @@ require_once("listing.php");
 require_once("product-page.php");
 require_once("cart.php");
 require_once("checkout.php");
+require_once("ajax.php");
 
 // Registrera menyer
 function register_my_menus() {
