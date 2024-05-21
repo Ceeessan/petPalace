@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-around;
 
+    .woocommerce-info::before{
+        display: none;
+    }
+
     .col-1{
         width: 50%;
     } 
