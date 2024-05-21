@@ -128,6 +128,33 @@ add_action( 'woocommerce_after_shop_loop_item', 'petPalace_add_star_rating', 5 )
 
 //____________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
 
+// Funktion för att visa resultaträknare och laddningsknapp
+function display_result_count_and_button() {
+    global $wp_query;
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        $total_products = $wp_query->found_posts;
+        $products_per_page = $wp_query->get('posts_per_page');
+        $current_count = $wp_query->post_count;
+
+        if ($total_products > $products_per_page) {
+            echo '<div class="button-container">';
+            echo '<button class="load-more-button" id="load-more"> + </button>';
+            echo '</div>';
+        }
+
+        echo '<div class="custom-result-count">';
+        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
+        echo '</div>';
+
+ 
+    }
+}
+add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');
+
+// Ta bort standardresultaträknaren från sin ursprungliga plats
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
+
 
 
 //Denna ska fixas!!!! SKa lägga till text i settings.
@@ -148,7 +175,7 @@ function display_member_banner(){
         } 
     }
 }
-add_action( 'woocommerce_after_main_content', 'display_member_banner');
+add_action( 'woocommerce_after_shop_loop', 'display_member_banner');
 
 
 function custom_add_recommendations() {
