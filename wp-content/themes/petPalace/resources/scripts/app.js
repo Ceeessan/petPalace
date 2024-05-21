@@ -1,5 +1,6 @@
 // alert("Hello world");
 
+<<<<<<< HEAD
 //Listing:
 document.addEventListener('DOMContentLoaded', function () {
     const couponInput = document.querySelector('#coupon_code');
@@ -26,3 +27,5 @@ jQuery(document).ready(function ($) {
         window.location.href = url;
     });
 });
+=======
+>>>>>>> main
