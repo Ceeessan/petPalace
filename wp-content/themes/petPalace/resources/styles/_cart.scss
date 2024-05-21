@@ -21,17 +21,35 @@
 
     .custom-div{
         width: 140%;
+        .product-remove{
+            display: block;
+            position: absolute;
+            left: 58%;
+            .wishlist-icon{
+                img{
+                    background-color: transparent;
+                    border: none;
+                    width: 23px;
+                    margin-top: -40px;
+                }
+            }
+        }
         .product-thumbnail{
             padding: 20px;
         }
 
-        .product-name{
-            width: 30%;
+        .product-name, .product-subtotal, .product-quantity{
+            display: block;
             a{
                 text-decoration: none;
                 font-family: "Roboto-Bold";
                 color: #3B644C;
             }
+        }
+
+        .product-name{
+            padding-top: 20px;
+
         }
 
     }
@@ -170,6 +188,7 @@ a.button.alt{
         margin: 0;
     }
 
+
     .cart-form-wrapper{
         display: flex;
         flex-direction: column;
@@ -177,14 +196,17 @@ a.button.alt{
         width: inherit;
 
         .product-remove{
-            left: unset;
-            position: static;
+            left: 0 !important;
+            position: inherit !important;
         }
 
         .custom-div{
             width:inherit;
+            
             .product-name{
                 width: 100%;
+                padding-top: 10px;
+
             }
         }
 
@@ -206,6 +228,17 @@ a.button.alt{
 
     .woocommerce table.shop_table{
         border-radius: 0%;
+        .wishlist-icon{
+            display: block;
+            position: absolute;
+            left: 86%;
+            margin-top: 10px;
+            img{
+                background-color: transparent;
+                border: none;
+                width: 22px;
+            }
+        }
     }
     .woocommerce-cart-form__cart-item{
         border-bottom: 1px solid #DBDBDB;
@@ -320,7 +353,6 @@ a.button.alt{
     .woocommerce table.shop_table{
         border: none;
         margin: 0;
-        padding-top: 10px;
 
         .cart-subtotal, .woocommerce-shipping-totals, .order-total{
             padding: 0 10px;
