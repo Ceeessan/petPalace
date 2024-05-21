@@ -183,6 +183,18 @@ a.button.alt{
     }
 }
 
+button#place_order{
+    background-color: #82A2D7 !important;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+    &:hover{
+        background-color: #6388C5 !important;
+    }
+}
+
 .wc-empty-cart-message{
     text-align: center;
     padding-top: 80px;
@@ -250,9 +262,13 @@ a.button.alt{
             .cart_totals.calculated_shipping{
                 width: inherit;
             }
-
+            
+            button#place_order.button.alt{
+                margin-bottom: unset;
+            }
         }
     }
+
 
     .woocommerce table.shop_table{
         border-radius: 0%;
