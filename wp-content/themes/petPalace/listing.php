@@ -46,7 +46,7 @@ function display_icons_filter() {
     </div>
     
     <div class="icon-div"> 
-        <img class="icon-animals bird-icon" data-tag="faglar" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
+        <img class="icon-animals bird-icon" data-tag="bird" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
         <p class="icon-text">Fåglar</p>  
     </div>
 
@@ -109,7 +109,7 @@ function disable_star_ratings_from_product_listing() {
 add_action( 'init', 'disable_star_ratings_from_product_listing' );
 
 
-// Lägger till egen design på betyg på hemsidan
+// Lägger till egen brtyg och design på recensioner på hemsidan
 function petPalace_add_star_rating() {
     global $product;
     $rating = $product->get_average_rating();
@@ -156,18 +156,17 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 
 
-
 //Denna ska fixas!!!! SKa lägga till text i settings.
-function display_member_banner(){
-    
-    $display_sale_banner = get_option('display_sale_banner');
+function display_member_banner() {
+    // Hämta värdet för checkboxen för member-banner
+    $display_second_banner = get_option('display_second_banner');
     
     // Om checkboxen är markerad, visas meddelandet
-    if ($display_sale_banner) {
-        $store_message = get_option('store_message');
-        if (!empty($store_message)) {
+    if ($display_second_banner) {
+        $second_banner_message = get_option('second_banner_message');
+        if (!empty($second_banner_message)) {
             echo '<div class="member-div-listing">';
-            echo '<div class="banner-text-listing">' . $store_message . '</div>';
+            echo '<div class="banner-text-listing">' . $second_banner_message . '</div>';
             echo '<div class="sale-banner-listing-img-wrapper">';
             echo '<img src="' . get_template_directory_uri() . '/resources/images/member-dog-human.png" class="sale-banner-listing-img">';
             echo '</div>';
@@ -175,7 +174,7 @@ function display_member_banner(){
         } 
     }
 }
-add_action( 'woocommerce_after_shop_loop', 'display_member_banner');
+add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
 function custom_add_recommendations() {

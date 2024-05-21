@@ -9,3 +9,14 @@ jQuery(document).ready(function ($) {
         window.location.href = url;
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var searchForm = document.getElementById('product-search-form');
+
+    searchForm.addEventListener('submit', function (event) {
+        var searchInput = document.getElementById('s');
+        // Töm sökfältet
+        searchInput.value = '';
+    });
+});

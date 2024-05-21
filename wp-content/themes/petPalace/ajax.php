@@ -9,6 +9,8 @@ function init_ajax(){
 
 add_action("init", "init_ajax");
 
+
+// Enqueue samt filtrering för ikonerna
 function petPalace_enqueue_scripts(){
     $theme_directory = get_template_directory_uri();
     wp_enqueue_script("petPalace_jquery", $theme_directory . "/resources/scripts/jquery.js", array(), false, true);
