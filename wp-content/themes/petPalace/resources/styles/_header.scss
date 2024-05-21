@@ -110,10 +110,13 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
+            
 
             img {
                 max-height: 100px;
                 margin: -20px;
+                display: block;
+                padding-left: 90px;
             }
         }
 
