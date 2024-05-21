@@ -10,6 +10,10 @@
     border-top: none;
 }
 
+.woocommerce-info::before{
+    display: none;
+}
+
 .cart-form-wrapper{
     display: flex;
     margin: 0 auto;
@@ -25,14 +29,7 @@
             display: block;
             position: absolute;
             left: 58%;
-            .wishlist-icon{
-                img{
-                    background-color: transparent;
-                    border: none;
-                    width: 23px;
-                    margin-top: -40px;
-                }
-            }
+
         }
         .product-thumbnail{
             padding: 20px;
@@ -177,7 +174,28 @@ a.button.alt{
     }
 }
 
+.wc-empty-cart-message{
+    text-align: center;
+    padding-top: 80px;
+}
 
+.return-to-shop{
+    text-align: center;
+    padding: 40px 0px 80px 0px;
+    a.button {
+        background-color: #82A2D7 !important;
+        border-radius: 8px;
+        color: #fff;
+        padding: 15px;
+        width: 20%;
+
+        &:hover{
+            background-color: #6388C5 !important;
+            color: #fff;
+
+        }
+    }
+}
 
 
 
@@ -363,6 +381,12 @@ a.button.alt{
         text-align: center;
         padding: 20px 0;
         border-bottom: 1px solid #DBDBDB;
+    }
+
+    .return-to-shop{
+        a.button {
+            width: inherit;
+        }
     }
 
 }

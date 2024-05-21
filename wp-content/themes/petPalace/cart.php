@@ -86,3 +86,30 @@ function ecommercehints_update_cart_on_quantity_change() { ?>
 	} );
 	</script>
 <?php }
+
+//flyttat på email i order received page
+add_filter('woocommerce_thankyou_order_received_text', 'my_order_received_text', 10, 2);
+function my_order_received_text($text, $order) {
+    if (!is_a($order, 'WC_Order')) {
+        return $text;
+    }
+    $email = $order->get_billing_email();
+
+    return $text . '<br>
+    <div class="custom-order-received"><p>' . __('Din orderbekräftelse har skickats till: ') . '<strong>' . $email . '</strong></p></div>';
+}
+
+//visar produktbilder i order received page
+add_filter( 'woocommerce_order_item_name', 'order_received_item_thumbnail_image', 10, 3 );
+function order_received_item_thumbnail_image( $item_name, $item, $is_visible ) {
+    if( ! is_wc_endpoint_url('order-received') ) return $item_name;
+
+    $product = $item->get_product();
+
+    if( $product->get_image_id() > 0 ){
+        $product_image = '<span style="float:left;display:block;width:56px;">' . $product->get_image(array(48, 48)) . '</span>';
+        $item_name = $product_image . $item_name;
+    }
+
+    return $item_name;
+}
