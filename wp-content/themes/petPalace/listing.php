@@ -27,32 +27,36 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 
 // Lägger till ikonerna, dessa ska ha filtrerings-funktion.
-function display_icons_filter(){
-    echo '<div class= "icons-filter-div">
+function display_icons_filter() {
+    echo '<div class="icons-filter-div">
 
-    <div class= "icon-div"> <img class="icon-animals dog-icon" src="'. get_template_directory_uri() . '/resources/images/dog-icon.png"> 
-    <p class="icon-text">Hund</p> 
+    <div class="icon-div"> 
+        <img class="icon-animals dog-icon" data-tag="hund" src="'. get_template_directory_uri() . '/resources/images/dog-icon.png"> 
+        <p class="icon-text">Hund</p> 
     </div>
 
-    <div class= "icon-div"> 
-    <img class="icon-animals cat-icon" src="'. get_template_directory_uri() . '/resources/images/cat-icon.png"> 
-    <p class="icon-text">Katt</p>  
+    <div class="icon-div"> 
+        <img class="icon-animals cat-icon" data-tag="katt" src="'. get_template_directory_uri() . '/resources/images/cat-icon.png"> 
+        <p class="icon-text">Katt</p>  
     </div>
 
-    <div class= "icon-div"> 
-    <img class="icon-animals rabbit-icon" src="'. get_template_directory_uri() . '/resources/images/rabbit-icon.png"> 
-    <p class="icon-text">Gnagare</p> 
+    <div class="icon-div"> 
+        <img class="icon-animals rabbit-icon" data-tag="gnagare" src="'. get_template_directory_uri() . '/resources/images/rabbit-icon.png"> 
+        <p class="icon-text">Gnagare</p> 
     </div>
     
-    <div class= "icon-div"> 
-    <img class="icon-animals bird-icon" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
-    <p class="icon-text">Fåglar</p>  
+    <div class="icon-div"> 
+        <img class="icon-animals bird-icon" data-tag="faglar" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
+        <p class="icon-text">Fåglar</p>  
     </div>
 
     </div>';
 }
 
-add_action( 'woocommerce_before_shop_loop', 'display_icons_filter');
+add_action('woocommerce_before_shop_loop', 'display_icons_filter');
+
+
+
 
 
 

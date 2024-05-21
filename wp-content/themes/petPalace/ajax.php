@@ -10,18 +10,24 @@ function init_ajax(){
 add_action("init", "init_ajax");
 
 function petPalace_enqueue_scripts(){
-    wp_enqueue_script("petPalace_jquery", get_template_directory_uri() . "/resources/scripts/jquery.js" , array(), false, array());
+    $theme_directory = get_template_directory_uri();
+    wp_enqueue_script("petPalace_jquery", $theme_directory . "/resources/scripts/jquery.js", array(), false, true);
+    wp_enqueue_script("petPalace_ajax", $theme_directory . "/resources/scripts/ajax.js", array("petPalace_jquery"), false, true);
 
-    wp_enqueue_script("petPalace_ajax", get_template_directory_uri() . "/resources/scripts/ajax.js", array("petPalace_jquery"), false, array());
-
+    // Kombinerar variablerna som ska lokaliseras till skripten
     wp_localize_script("petPalace_ajax", "ajax_variables", array(
-        "ajaxUrl" => admin_url("admin-ajax.php"),
+        "ajaxUrl" => admin_url("admin-ajax.php"), 
         "nonce" => wp_create_nonce("petPalace_ajax_nonce"),
+        "siteUrl" => get_site_url(),
         "totalProducts" => $GLOBALS['wp_query']->found_posts
     ));
+
+    wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), null, true);
+    wp_localize_script('custom-scripts', 'ajaxurl', admin_url('admin-ajax.php'));
 }
 
-add_action('wp_enqueue_scripts', 'add_custom_scripts');
+add_action('wp_enqueue_scripts', 'petPalace_enqueue_scripts');
+
 
 function add_custom_scripts() {
     wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), null, true);
@@ -64,19 +70,26 @@ function display_result_count_and_button() {
         $products_per_page = $wp_query->get('posts_per_page');
         $current_count = $wp_query->post_count;
 
-        echo '<div class="custom-result-count">';
-        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
-        echo '</div>';
-
         if ($total_products > $products_per_page) {
             echo '<div class="button-container">';
             echo '<button class="load-more-button" id="load-more"> + </button>';
             echo '</div>';
         }
+
+        echo '<div class="custom-result-count">';
+        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
+        echo '</div>';
+
+ 
     }
 }
 add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');
 
 // Ta bort standardresultaträknaren från sin ursprungliga plats
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
+
+
+
+
 ?>
