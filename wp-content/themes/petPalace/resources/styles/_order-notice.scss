@@ -1,0 +1,130 @@
+.woocommerce-order{
+    margin: 20px;
+    text-align: center;
+    .woocommerce-notice {
+        margin-bottom: 10px;
+        margin-top: 40px;
+        font-size: 20px;
+    }
+
+    .custom-order-received{
+        margin-bottom: 20px;
+    }
+
+    .email{
+        display: none;
+    }
+    
+    ul.order_details{
+        justify-content: space-between;
+        display: flex;
+        li{
+            border: none;
+            }
+    }
+
+    .woocommerce-order-details{
+        .woocommerce-table--order-details{
+            margin-top: 20px;
+            .product-name{
+                a{
+                    color: #3B644C;
+                    text-decoration: none;
+                }
+                img{
+                    background-color:#F9F6EC;
+                    border: solid 1px #C2D1D9;
+                    border-radius: 3px;                
+                }
+                .wc-item-meta-label{
+                    clear:inherit;
+                }
+            } 
+        }
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+.woocommerce-order{
+    margin: 20px;
+    text-align: center;
+
+    .woocommerce-notice {
+        margin-bottom: 10px;
+        margin-top: 40px;
+        font-size: 18px;
+    }
+
+    ul.order_details li{
+        padding-right: unset;
+    }
+
+    .custom-order-received{
+        p{
+            margin-bottom: 20px;
+            font-size: 14px;
+            strong{
+                font-size: 16px;
+            }
+        }
+    }
+
+    ul.order_details{
+        display: block;
+    }
+
+    .woocommerce-order-overview{
+        .order, .date{
+            margin: auto;
+            width: 50%;
+            border-right: none;
+        }
+
+        .email{
+            display: none;
+        }
+
+        .total, .method{
+            width: 50%;
+            margin: auto;
+            padding-top: 20px;
+            border-right: none;
+        }
+    }
+
+    .woocommerce-order-details{
+        .woocommerce-table--order-details{
+            margin-top: 20px;
+            .product-name{
+                a{
+                    color: #3B644C;
+                    text-decoration: none;
+                }
+                img{
+                    background-color:#F9F6EC;
+                    border: solid 1px #C2D1D9;
+                    border-radius: 3px;                
+                }
+                .wc-item-meta-label{
+                    clear:inherit;
+                    margin-left: 26%;
+                }
+
+            }
+        }
+    }
+    .col-1{
+        margin-bottom: 20px;
+    }
+    .woocommerce-column__title{
+        margin-bottom: 10px;
+    }
+}
+
+}

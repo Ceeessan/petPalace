@@ -10,6 +10,10 @@
     border-top: none;
 }
 
+.woocommerce-info::before{
+    display: none;
+}
+
 .cart-form-wrapper{
     display: flex;
     margin: 0 auto;
@@ -25,14 +29,7 @@
             display: block;
             position: absolute;
             left: 58%;
-            .wishlist-icon{
-                img{
-                    background-color: transparent;
-                    border: none;
-                    width: 23px;
-                    margin-top: -40px;
-                }
-            }
+
         }
         .product-thumbnail{
             padding: 20px;
@@ -73,7 +70,16 @@
 .woocommerce table.cart td.actions{
     .coupon{
         margin-bottom: 10px;
-        margin-left: 50px;
+        margin-left: 10px;
+        width: 100%;
+
+        .input-text{
+            width: 21%;
+            float: left;
+        }
+        .button{
+            float: left;
+        }
     }
 
     input{
@@ -177,7 +183,40 @@ a.button.alt{
     }
 }
 
+button#place_order{
+    background-color: #82A2D7 !important;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+    &:hover{
+        background-color: #6388C5 !important;
+    }
+}
 
+.wc-empty-cart-message{
+    text-align: center;
+    padding-top: 80px;
+}
+
+.return-to-shop{
+    text-align: center;
+    padding: 40px 0px 80px 0px;
+    a.button {
+        background-color: #82A2D7 !important;
+        border-radius: 8px;
+        color: #fff;
+        padding: 15px;
+        width: 20%;
+
+        &:hover{
+            background-color: #6388C5 !important;
+            color: #fff;
+
+        }
+    }
+}
 
 
 
@@ -214,6 +253,7 @@ a.button.alt{
             font-family: "Roboto-Light";
             font-size: 14px;
             margin-left: inherit;
+            margin-top: 10px;
 
             .cart_totals{
                 width: inherit;
@@ -222,9 +262,13 @@ a.button.alt{
             .cart_totals.calculated_shipping{
                 width: inherit;
             }
-
+            
+            button#place_order.button.alt{
+                margin-bottom: unset;
+            }
         }
     }
+
 
     .woocommerce table.shop_table{
         border-radius: 0%;
@@ -339,6 +383,9 @@ a.button.alt{
     .woocommerce table.cart td.actions{
         .coupon{    
             margin: inherit;
+            .input-text{
+                width: 49%;
+            }
         }
     }
     
@@ -363,6 +410,12 @@ a.button.alt{
         text-align: center;
         padding: 20px 0;
         border-bottom: 1px solid #DBDBDB;
+    }
+
+    .return-to-shop{
+        a.button {
+            width: inherit;
+        }
     }
 
 }

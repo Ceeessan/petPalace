@@ -62,9 +62,6 @@ do_action( 'woocommerce_before_cart' ); ?>
         					$cart_item_key
     						);
     					?>
-    					<div class="wishlist-icon">
-        					<img src="<?php echo esc_url( get_template_directory_uri() . '/resources/images/wishlist.svg' ); ?>" alt="Custom Icon" />
-    					</div>
 					</td>
 
 

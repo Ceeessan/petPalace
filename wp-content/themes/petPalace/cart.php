@@ -5,6 +5,11 @@ function add_cart_title() {
     echo '<h2 class="cart-title">Varukorg</h2>';
 }
 
+//Ändrat texten i rabattkupongens placeholder
+function my_coupon_strings( $translated_text, $text, $domain ) 
+{ switch ( $translated_text ) { case 'Rabattkod' : $translated_text = __( 'Ange kod', 'woocommerce' );
+   break; } return $translated_text; } add_filter( 'gettext', 'my_coupon_strings', 10, 3 );
+
 //Endast fri frakt ska synas om köparen når 1000kr
 add_filter( 'woocommerce_package_rates', 'unset_shipping_when_free_is_available_all_zones', 9999, 2 );
    
@@ -40,16 +45,6 @@ function custom_woocommerce_button_text($translation, $text, $domain) {
 }
 add_filter('gettext', 'custom_woocommerce_button_text', 10, 3);
 
-//Ändrar texten i placeholdern till rabattkoden
-function my_text_strings( $translated_text, $text, $domain ) {
-   switch ( $translated_text ) {
-       case 'Coupon code' :
-           $translated_text = __( 'Ange kod', 'woocommerce' );
-           break;
-   }
-   return $translated_text;
-}
-add_filter( 'gettext', 'my_text_strings', 20, 3 );
 
 //Tar bort texten "Shipping options will be updated during checkout."
 function shipping_estimate_html()
@@ -58,11 +53,6 @@ function shipping_estimate_html()
 }
 add_filter('woocommerce_shipping_estimate_html', 'shipping_estimate_html');
 
-//Ändrar "Shipping" till "Frakt"
-add_filter( 'woocommerce_shipping_package_name', 'custom_shipping_package_name' );
-function custom_shipping_package_name( $name ) {
-  return 'Frakt';
-}
 
 //Uppdaterar varukorgen automatiskt utan att behöva klicka på "Update Cart"
 add_action( 'wp_head', 'ecommercehints_hide_update_cart_button' );
@@ -86,3 +76,30 @@ function ecommercehints_update_cart_on_quantity_change() { ?>
 	} );
 	</script>
 <?php }
+
+//flyttat på email i order received page
+add_filter('woocommerce_thankyou_order_received_text', 'my_order_received_text', 10, 2);
+function my_order_received_text($text, $order) {
+    if (!is_a($order, 'WC_Order')) {
+        return $text;
+    }
+    $email = $order->get_billing_email();
+
+    return $text . '<br>
+    <div class="custom-order-received"><p>' . __('Din orderbekräftelse har skickats till: ') . '<strong>' . $email . '</strong></p></div>';
+}
+
+//visar produktbilder i order received page
+add_filter( 'woocommerce_order_item_name', 'order_received_item_thumbnail_image', 10, 3 );
+function order_received_item_thumbnail_image( $item_name, $item, $is_visible ) {
+    if( ! is_wc_endpoint_url('order-received') ) return $item_name;
+
+    $product = $item->get_product();
+
+    if( $product->get_image_id() > 0 ){
+        $product_image = '<span style="float:left;display:block;width:56px;">' . $product->get_image(array(48, 48)) . '</span>';
+        $item_name = $product_image . $item_name;
+    }
+
+    return $item_name;
+}
