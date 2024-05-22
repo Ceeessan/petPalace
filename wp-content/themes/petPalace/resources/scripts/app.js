@@ -1,4 +1,4 @@
-// alert("Hello world");
+
 
 
 //För ikonerna katt|hund|gnagare|fågel
@@ -9,6 +9,31 @@ jQuery(document).ready(function ($) {
         window.location.href = url;
     });
 });
+
+//Filtrerings-funktion 
+document.addEventListener('DOMContentLoaded', function () {
+    const filterBtn = document.querySelector('.filter-icon-container');
+    const filterPopup = document.getElementById('filter-popup');
+    const closeFilterBtn = document.getElementById('close-filter-btn');
+    const overlay = document.getElementById('overlay');
+
+    const openFilter = function () {
+        filterPopup.classList.add('show');
+        overlay.classList.add('show');
+    };
+
+    const closeFilter = function () {
+        filterPopup.classList.remove('show');
+        overlay.classList.remove('show');
+    };
+
+    filterBtn.addEventListener('click', openFilter);
+    closeFilterBtn.addEventListener('click', closeFilter);
+
+    // Stäng popup-rutan om användaren klickar på overlay
+    overlay.addEventListener('click', closeFilter);
+});
+
 
 //Scroll för relaterade produkter
 jQuery(document).ready(function ($) {

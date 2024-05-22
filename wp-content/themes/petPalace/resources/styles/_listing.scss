@@ -111,6 +111,7 @@
                 border-bottom: 1px solid #272727;
                 border-left: none;
                 border-radius: 0px 5px 5px 0px;
+                padding:5px;
                 cursor:pointer
                     
             }
@@ -132,8 +133,69 @@
                 border-radius: 2px;
             }
         }
+
+        .filter-popup {
+            display: none; /* Initialt dold */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ccc;
+            // padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001; 
+            width: calc(100% - 100px);
+            height: calc( 100% - 150px);
+
+            &.show {
+                display: block; 
+            }
+
+            .styling-filter-listing{
+                width: 100%;
+                height: 100%;
+                background-color: green;
+
+                #close-filter-btn{
+                    
+                    
+                    color:red;
+                }
+
+            }
+
+        }
+        
+        .filter-icon-container {
+            cursor: pointer;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .overlay {
+            display: none; /* Initialt dold */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000; /* Se till att den är bakom popup */
+            &.show {
+                display: block; /* Visas när .show klassen läggs till */
+            }
+        }
+        
+        
     
+
+
         .woocommerce-ordering{
+            margin-left: 80px;
+            width: calc(90%);
            position:relative;
            top: -60px;
            right:15px;
@@ -365,7 +427,7 @@
                         a{
                             display: block;
                             text-align: center;
-                            padding-bottom: 5px;
+                            padding: 5px;
                          
                         }  
                         
@@ -416,6 +478,10 @@
 
             }
 
+            .button{ 
+                padding:5px;
+            }
+
             ul.products {
                 display: flex;
                 justify-content: center;
@@ -452,7 +518,7 @@
                 }
             }
   
-            
+       
             
             
         }
@@ -482,6 +548,10 @@
                         .sale-banner-listing-img{
                         height: 180px;
                         }
+                    }
+
+                    .button{ 
+                        padding:5px;
                     }
 
                     .custom-search-form{ 

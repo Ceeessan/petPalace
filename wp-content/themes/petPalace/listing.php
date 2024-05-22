@@ -43,7 +43,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 
 
-// Lägger till ikonerna, dessa ska ha filtrerings-funktion.
+// Lägger till ikonerna, dessa har filtrerings-funktion.
 function display_icons_filter() {
     echo '<div class="icons-filter-div">
 
@@ -98,7 +98,6 @@ function get_searchbar() {
 
 add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
-
 function add_filter_icon() {
     echo '<div class="filter-icon-container">
             <div>
@@ -107,8 +106,33 @@ function add_filter_icon() {
                 </svg>
             </div>
           </div>';
+
+    // Popup-filtreringsruta
+    echo '<div id="filter-popup" class="filter-popup hidden">
+    <div class="styling-filter-listing">
+            <button id="close-filter-btn">X</button>
+            <!-- Innehåll för filtreringsfältet (kategorier, prisområde etc.) -->
+            <div class="filter-content">
+                <h3>Filtrera Produkter</h3>
+                <!-- Exempel på filter: Kategorier och Pris -->
+                <label for="categories">Kategorier:</label>
+                <select id="categories">
+                    <option value="category1">Kategori 1</option>
+                    <option value="category2">Kategori 2</option>
+                    <!-- Lägg till fler kategorier dynamiskt -->
+                </select>
+                <label for="price">Pris:</label>
+                <input type="range" id="price" name="price" min="0" max="1000">
+            </div>
+          </div>
+          </div>';
+
+    // Overlay
+    echo '<div id="overlay" class="overlay hidden"></div>';
 }
-add_action( 'woocommerce_before_shop_loop', 'add_filter_icon' );
+add_action('woocommerce_before_shop_loop', 'add_filter_icon');
+
+
 
 // Tar bort stjärnbetyg från produktlisting
 function disable_star_ratings_from_product_listing() {
