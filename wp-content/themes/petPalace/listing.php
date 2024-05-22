@@ -17,9 +17,6 @@ add_action('woocommerce_after_main_content', 'wrap_woocommerce_listing_page_end'
 
 
 
-
-
-
 // Detta är ett val för företaget
 function display_sale_banner(){
     
@@ -197,7 +194,7 @@ function display_member_banner() {
 add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
-//Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
+
 // Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
 function display_related_products() {
     if ( class_exists( 'WooCommerce' ) ) {
@@ -213,13 +210,21 @@ function display_related_products() {
                 foreach ( $related_products as $related_product_id ) {
                     $related_product = wc_get_product( $related_product_id );
                     if ( $related_product ) {
-                        
                         echo '<li class="product">';
                         echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
                         echo $related_product->get_image();
                         echo '<h3>' . $related_product->get_name() . '</h3>';
                         echo '<span class="price">' . $related_product->get_price_html() . '</span>';
                         echo '</a>';
+                        // Lägg till knapp för att lägga till produkten i varukorgen
+                        echo apply_filters( 'woocommerce_loop_add_to_cart_link', // Använd WooCommerce-filtret för att skapa knappens HTML
+                            sprintf( '<a href="%s" data-quantity="1" class="button %s" %s>%s</a>',
+                                esc_url( $related_product->add_to_cart_url() ),
+                                $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
+                                $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
+                                esc_html( $related_product->add_to_cart_text() )
+                            ),
+                        $related_product ); // Skicka produktobjektet till filtret
                         echo '</li>';
                     }
                 }
@@ -230,6 +235,7 @@ function display_related_products() {
         }
     }
 }
-add_action( 'woocommerce_after_shop_loop', 'display_related_products' );
+add_action( 'woocommerce_after_shop_loop', 'display_related_products', 20 );
+
 
 ?>
