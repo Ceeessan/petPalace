@@ -1,17 +1,115 @@
-.pp{////////////////////////all styling i pp//////////////////////////
+.pp {
+    ////////////////////////all styling i pp//////////////////////////
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-.rating-with-stars{
-    height:16px;
-    width: calc(16px*5);
-    
-    .fill{
-        width:0%;
-        height:100%;
-        background-image: url("../images/star_filled.png");
-        background-size: auto 100%;
-        background-repeat: repeat-x;
-        margin-top: 10px;
-        display:flex;         
+    .rating-with-stars {
+        height: 16px;
+        width: calc(16px * 5);
+        margin-bottom: 20px;
+
+        .fill {
+            width: 0%;
+            height: 100%;
+            background-image: url("../images/star_filled.png");
+            background-size: auto 100%;
+            background-repeat: repeat-x;
+            margin-top: 10px;
+            display: flex;         
+        }
     }
-}
+
+    .product-sections {
+        margin-top: 20px;
+    }
+
+    .product-section {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        cursor: pointer;
+        background: #f1f1f1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        position: relative;
+        font-size: 18px;
+    }
+
+    .section-title .toggle-icon {
+        position: absolute;
+        right: 10px;
+        font-size: 18px;
+    }
+
+    .section-content {
+        display: none;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+
+    /* Container för relaterade produkter */
+    .container-related-listing {
+        padding: 20px;
+    }
+
+    /* Relaterade produkter listning */
+    .related-products {
+        display: flex;
+        flex-direction: column; /* Ändra till kolumn för att placera titeln ovanför karusellen */
+        align-items: center; /* Centrera karusellen */
+        
+        .related-products-title {
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    }
+
+    /* Produkten listning */
+    .swiper-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-wrapper {
+        display: flex;
+    }
+
+    .swiper-slide {
+        flex: 0 0 auto; /* Gör varje produkt flexibelt */
+        width: calc(50% - 10px); /* Anpassa bredden så två produkter visas */
+        box-sizing: border-box;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-pagination {
+        text-align: center;
+        position: relative;
+        bottom: 10px;
+    }
+
+    .swiper-pagination-bullet {
+        background: #000;
+    }
+
+    /* Visuell cue för att visa att man kan svepa */
+    .swiper-cue {
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+        margin-top: 10px;
+    }
 }
