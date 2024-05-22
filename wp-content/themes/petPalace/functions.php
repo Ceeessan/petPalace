@@ -37,4 +37,13 @@ add_action('after_setup_theme', 'petPalace_add_woocommerce_support');
 // Initialize theme
 require_once(get_template_directory() . "/init.php");
 
-?>
+
+
+//Lägger till slick carousel för att karusellen ska funka.
+function enqueue_slick_carousel() {
+    wp_enqueue_style( 'slick-carousel-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+    wp_enqueue_style( 'slick-carousel-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css' );
+    wp_enqueue_script( 'slick-carousel-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '', true );
+    wp_enqueue_script( 'custom-carousel-js', get_template_directory_uri() . '/js/custom-carousel.js', array('slick-carousel-js'), '', true );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_slick_carousel' );
