@@ -226,7 +226,7 @@
     
            li.product{
                 width: calc(25% - 20px);
-                height: 400px;
+                height: auto;
                 padding: 20px;
                 margin: 5px;
                 box-sizing: border-box;
@@ -431,10 +431,10 @@
                          
                         }  
                         
-                        img{
-                            max-width: 100%;
-                            height: auto;
-                        }
+                        // img{
+                        //     max-width: 100%;
+                        //     height: auto;
+                        // }
 
                         h3{
                             font-size: 1em;
