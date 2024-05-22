@@ -1,5 +1,25 @@
 <?php
 
+function wrap_woocommerce_listing_page_start() {
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        echo '<div class="custom-wrapper-listing-page">';
+    }
+}
+
+function wrap_woocommerce_listing_page_end() {
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        echo '</div>';
+    }
+}
+
+add_action('woocommerce_before_main_content', 'wrap_woocommerce_listing_page_start', 5);
+add_action('woocommerce_after_main_content', 'wrap_woocommerce_listing_page_end', 50);
+
+
+
+
+
+
 // Detta är ett val för företaget
 function display_sale_banner(){
     
@@ -109,7 +129,7 @@ function disable_star_ratings_from_product_listing() {
 add_action( 'init', 'disable_star_ratings_from_product_listing' );
 
 
-// Lägger till egen brtyg och design på recensioner på hemsidan
+// Lägger till egen betyg och design på recensioner på hemsidan
 function petPalace_add_star_rating() {
     global $product;
     $rating = $product->get_average_rating();
@@ -177,21 +197,23 @@ function display_member_banner() {
 add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
+//Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
+// Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
 function display_related_products() {
-    // Kontrollera om Woocommerce är aktiverat
     if ( class_exists( 'WooCommerce' ) ) {
-        // Kontrollera om det finns relaterade produkter för den aktuella produkten
+       
         global $product;
         if ( $product && $product->get_id() ) {
             $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
             if ( $related_products ) {
+                echo '<div class="container-related-listing">';
                 echo '<div class="related-products">';
                 echo '<h2>Relaterade produkter</h2>';
                 echo '<ul class="products">';
                 foreach ( $related_products as $related_product_id ) {
                     $related_product = wc_get_product( $related_product_id );
                     if ( $related_product ) {
-                        // Visa produkten med dess bild, namn och pris
+                        
                         echo '<li class="product">';
                         echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
                         echo $related_product->get_image();
@@ -202,6 +224,7 @@ function display_related_products() {
                     }
                 }
                 echo '</ul>';
+                echo '</div>';
                 echo '</div>';
             }
         }

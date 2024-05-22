@@ -10,4 +10,12 @@ jQuery(document).ready(function ($) {
     });
 });
 
+//Scroll för relaterade produkter
+document.addEventListener('DOMContentLoaded', function () {
+    var relatedProductsContainer = document.querySelector('.related-products ul.products');
+
+    if (relatedProductsContainer) {
+        relatedProductsContainer.style.scrollBehavior = 'smooth';
+    }
+});
 
