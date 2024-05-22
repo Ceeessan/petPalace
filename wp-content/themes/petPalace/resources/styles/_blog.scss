@@ -1,0 +1,58 @@
+//Blogg
+.blog-content{
+    margin: 2em 10em;
+    h1{
+        text-align: center;
+        color: #3B644C;
+        font-family: "Roboto-Regular";
+    }
+
+    article{
+        margin: 20px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 8px;
+        padding: 40px;
+        .entry-title{
+            a{
+                text-decoration: none;
+                color: #3B644C;
+                font-family: "Roboto-Bold";
+            }
+        }
+        .post-date{
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    }
+}
+
+//Blogginlägg
+.single-post-content{
+    margin: 2em 20em;
+    h1{
+        color: #3B644C;
+        font-family: "Roboto-Regular";
+        font-size: 30px;
+    }
+    .entry-content{
+        p{
+            padding: 20px 0;
+        }
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    //Blogg
+    .blog-content{
+        margin: 20px;
+    }
+
+
+
+    //Blogginlägg
+
+}
+  
+
+  
