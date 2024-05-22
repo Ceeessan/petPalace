@@ -147,35 +147,3 @@ add_action('woocommerce_after_single_product', 'petPalace_add_star_rating_single
 // Hook för att lägga till relaterade produkter efter single product
 add_action('woocommerce_after_single_product', 'display_related_products_custom', 20);
 ?>
-
-<!-- Lägg till Swiper.js CSS och JS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialisera Swiper.js -->
-<script>
-jQuery(document).ready(function($) {
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-            },
-        },
-    });
-});
-</script>
