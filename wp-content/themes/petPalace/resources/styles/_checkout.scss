@@ -49,6 +49,19 @@
         margin: 20px 0;
     }
 
+    #billing_country{
+        padding: 7px;
+        margin: 8px 0;
+        border: 1px solid #979797;
+        border-radius: 5px;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        &:focus {
+            border: 1px solid #3B644C;
+          }
+    }
+
     input[type=text] {
     padding: 7px;
     margin: 8px 0;
