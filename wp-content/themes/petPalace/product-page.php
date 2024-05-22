@@ -55,32 +55,42 @@ if ( is_product() ) :
     echo '</div>'; // Stäng wrapper div
 endif;
 
-// Funktion för att visa relaterade produkter som en karusell (behåll denna)
+// Funktion för att visa relaterade produkter som en karusell
 function display_related_products_custom() {
     if ( class_exists( 'WooCommerce' ) ) {
         global $product;
         if ( $product && $product->get_id() ) {
-            $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
+            $related_products = wc_get_related_products( $product->get_id(), 6 ); // Hämta upp till 6 relaterade produkter
             if ( $related_products ) {
-                echo '<div class="container-related-listing">';
-                echo '<div class="related-products">';
-                echo '<h2>Related Products</h2>';
-                echo '<ul class="products">';
-                foreach ( $related_products as $related_product_id ) {
-                    $related_product = wc_get_product( $related_product_id );
-                    if ( $related_product ) {
-                        echo '<li class="product">';
-                        echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
-                        echo $related_product->get_image();
-                        echo '<h3>' . $related_product->get_name() . '</h3>';
-                        echo '<span class="price">' . $related_product->get_price_html() . '</span>';
-                        echo '</a>';
-                        echo '</li>';
-                    }
-                }
-                echo '</ul>';
-                echo '</div>';
-                echo '</div>';
+                ?>
+                <div class="container-related-listing">
+                    <h2 class="related-products-title">Relaterade produkter</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            foreach ( $related_products as $related_product_id ) {
+                                $related_product = wc_get_product( $related_product_id );
+                                if ( $related_product ) {
+                                    ?>
+                                    <div class="swiper-slide">
+                                        <a href="<?php echo esc_url( get_permalink( $related_product->get_id() ) ); ?>">
+                                            <?php echo $related_product->get_image(); ?>
+                                            <h3><?php echo $related_product->get_name(); ?></h3>
+                                            <span class="price"><?php echo $related_product->get_price_html(); ?></span>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                        <!-- Lägg till pagination för att visa vilken slide användaren befinner sig på -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Lägg till en visuell cue för att visa att man kan svepa -->
+                        <div class="swiper-cue">Swipe to see more products</div>
+                    </div>
+                </div>
+                <?php
             }
         }
     }
@@ -137,3 +147,35 @@ add_action('woocommerce_after_single_product', 'petPalace_add_star_rating_single
 // Hook för att lägga till relaterade produkter efter single product
 add_action('woocommerce_after_single_product', 'display_related_products_custom', 20);
 ?>
+
+<!-- Lägg till Swiper.js CSS och JS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialisera Swiper.js -->
+<script>
+jQuery(document).ready(function($) {
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+            },
+        },
+    });
+});
+</script>

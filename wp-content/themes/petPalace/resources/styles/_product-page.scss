@@ -55,35 +55,61 @@
     /* Container för relaterade produkter */
     .container-related-listing {
         padding: 20px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Smidig scroll för iOS */
-        white-space: nowrap; /* Gör så att barnen inte bryts till en ny rad */
     }
 
     /* Relaterade produkter listning */
     .related-products {
         display: flex;
-        gap: 20px; /* Mellanrum mellan produkterna */
-        scroll-snap-type: x mandatory; /* För smidig snapping */
-        overflow-x: auto;
+        flex-direction: column; /* Ändra till kolumn för att placera titeln ovanför karusellen */
+        align-items: center; /* Centrera karusellen */
+        
+        .related-products-title {
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
     }
 
     /* Produkten listning */
-    .related-products ul.products {
-        display: flex;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        gap: 20px;
-        scroll-snap-type: x mandatory; /* För smidig snapping */
-        overflow-x: auto;
+    .swiper-container {
+        width: 100%;
+        height: auto;
     }
 
-    /* Produkt item styling */
-    .related-products ul.products li.product {
+    .swiper-wrapper {
+        display: flex;
+    }
+
+    .swiper-slide {
         flex: 0 0 auto; /* Gör varje produkt flexibelt */
         width: calc(50% - 10px); /* Anpassa bredden så två produkter visas */
         box-sizing: border-box;
-        scroll-snap-align: start; /* För smidig snapping */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-pagination {
+        text-align: center;
+        position: relative;
+        bottom: 10px;
+    }
+
+    .swiper-pagination-bullet {
+        background: #000;
+    }
+
+    /* Visuell cue för att visa att man kan svepa */
+    .swiper-cue {
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+        margin-top: 10px;
     }
 }
