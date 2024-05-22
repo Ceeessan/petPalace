@@ -1,6 +1,6 @@
 <?php
 
-// Detta ska bli ett val för företaget...
+// Detta är ett val för företaget
 function display_sale_banner(){
     
     $display_sale_banner = get_option('display_sale_banner');
@@ -156,7 +156,7 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 
 
-//Denna ska fixas!!!! SKa lägga till text i settings.
+// läggs till text för "medlem" i settings.
 function display_member_banner() {
     // Hämta värdet för checkboxen för member-banner
     $display_second_banner = get_option('display_second_banner');
@@ -177,14 +177,36 @@ function display_member_banner() {
 add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
-function custom_add_recommendations() {
-  if ( is_active_sidebar( 'widget-area-id' ) ) : ?>
-        <div id="primary-sidebar" class="widget-area">
-            <?php dynamic_sidebar( 'widget-area-id' ); ?>
-        </div><!-- #primary-sidebar -->
-    <?php endif; 
-    
+function display_related_products() {
+    // Kontrollera om Woocommerce är aktiverat
+    if ( class_exists( 'WooCommerce' ) ) {
+        // Kontrollera om det finns relaterade produkter för den aktuella produkten
+        global $product;
+        if ( $product && $product->get_id() ) {
+            $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
+            if ( $related_products ) {
+                echo '<div class="related-products">';
+                echo '<h2>Relaterade produkter</h2>';
+                echo '<ul class="products">';
+                foreach ( $related_products as $related_product_id ) {
+                    $related_product = wc_get_product( $related_product_id );
+                    if ( $related_product ) {
+                        // Visa produkten med dess bild, namn och pris
+                        echo '<li class="product">';
+                        echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
+                        echo $related_product->get_image();
+                        echo '<h3>' . $related_product->get_name() . '</h3>';
+                        echo '<span class="price">' . $related_product->get_price_html() . '</span>';
+                        echo '</a>';
+                        echo '</li>';
+                    }
+                }
+                echo '</ul>';
+                echo '</div>';
+            }
+        }
+    }
 }
-add_action( 'woocommerce_after_shop_loop', 'custom_add_recommendations', 10 );
+add_action( 'woocommerce_after_shop_loop', 'display_related_products' );
 
 ?>
