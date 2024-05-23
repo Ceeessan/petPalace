@@ -2,13 +2,13 @@
 // Wrapping (för att göra en egen div för min sida)
 function wrap_single_product_page_start() {
     if ( is_product() ) {
-        echo '<div class="pp">';
+        echo '<div class="pp"><div class="pp-content">';
     }
 }
 
 function wrap_single_product_page_end() {
     if ( is_product() ) {
-        echo '</div>';
+        echo '</div></div>';
     }
 }
 

@@ -1,10 +1,14 @@
 .pp {
-    /* All styling i pp */
-    margin: 0 auto;
+    /* Utöka .pp till att täcka hela bredden av sidan */
+    margin: 0; /* Tar bort auto centering */
     padding: 20px;
-    max-width: 800px;
+    width: 100%; /* Gör att .pp täcker hela bredden */
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .breadcrumbs-container {
+        margin-bottom: 20px; /* Lägg till lite utrymme under breadcrumbs */
+        text-align: left; /* Säkerställ att texten är vänsterjusterad */
+    }
 
     .rating-with-stars {
         height: 16px;
@@ -55,6 +59,7 @@
     /* Container för relaterade produkter */
     .container-related-listing {
         padding: 20px;
+        margin-top: 40px; /* Flyttar ner karusellen på sidan */
     }
 
     /* Produkten listning */
@@ -96,5 +101,19 @@
         font-size: 14px;
         color: #888;
         margin-top: 10px;
+    }
+
+    /* Ändra stil på relaterade produkter titel */
+    .related-products-title {
+        text-align: center;
+        width: 100%;
+        font-size: 28px; /* Större textstorlek */
+        font-weight: bold; /* Fetstil */
+        margin-bottom: 10px;
+    }
+
+    /* Flyttar allt innehåll lite mer åt vänster */
+    .pp-content {
+        margin-left: -10px; /* Justera detta värde efter behov */
     }
 }
