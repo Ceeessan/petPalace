@@ -10,7 +10,6 @@ require_once("vite.php");
 require_once("init.php");
 require_once("shortcodes.php");
 require_once("settings.php");
-require_once("home.php");
 require_once("listing.php");
 require_once("product-page.php");
 require_once("cart.php");
@@ -47,3 +46,10 @@ function enqueue_slick_carousel() {
     wp_enqueue_script( 'custom-carousel-js', get_template_directory_uri() . '/js/custom-carousel.js', array('slick-carousel-js'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_slick_carousel' );
+
+// Ändrar texten för kommentarstiteln i blogginläggen
+function change_comment_form_text( $fields ) {
+    $fields['title_reply'] = __('Leave a Comment'); 
+    return $fields;
+}
+add_filter( 'comment_form_defaults', 'change_comment_form_text' );

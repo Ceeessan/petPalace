@@ -62,7 +62,7 @@
         }
 
         .cart_totals.calculated_shipping{
-            width: 80%;
+            width: 75%;
         }
     }
 }   
@@ -178,6 +178,7 @@ a.button.alt{
     padding: 15px;
     border-radius: 8px;
     text-align: center;
+    margin-bottom: 20px;
     &:hover{
         background-color: #6388C5 !important;
     }
@@ -263,7 +264,7 @@ button#place_order{
                 width: inherit;
             }
             
-            button#place_order.button.alt{
+            .checkout-button{
                 margin-bottom: unset;
             }
         }
