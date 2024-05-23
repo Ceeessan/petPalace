@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <!-- Huvudinnehåll som tar upp resterande utrymme -->
+    <div class="content">
+        <p>Your main content goes here.</p>
+    </div>
     <!-- Footer -->
     <footer>
         <div class="footer-container">
