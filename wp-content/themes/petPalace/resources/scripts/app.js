@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const filterPopup = document.getElementById('filter-popup');
     const closeFilterBtn = document.getElementById('close-filter-btn');
     const overlay = document.getElementById('overlay');
+    const categoryItems = document.querySelectorAll('.category-item');
 
     const openFilter = function () {
         filterPopup.classList.add('show');
@@ -29,10 +30,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     filterBtn.addEventListener('click', openFilter);
     closeFilterBtn.addEventListener('click', closeFilter);
-
-    // Stäng popup-rutan om användaren klickar på overlay
     overlay.addEventListener('click', closeFilter);
+
+    categoryItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const categoryId = this.getAttribute('data-category-id');
+            filterProductsByCategory(categoryId);
+        });
+    });
+
+    function filterProductsByCategory(categoryId) {
+        const data = new FormData();
+        data.append('action', 'filter_products_by_category');
+        data.append('category_id', categoryId);
+
+        fetch(ajaxurl, {
+            method: 'POST',
+            body: data,
+            credentials: 'same-origin' // Viktigt för att skicka cookies
+        })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success) {
+                    // Uppdatera produktsidan med nya produkter
+                    document.querySelector('.styling-filter-listing').innerHTML = response.data.products;
+                    closeFilter();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 });
+
+
 
 
 //Scroll för relaterade produkter

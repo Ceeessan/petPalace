@@ -99,6 +99,12 @@ function get_searchbar() {
 add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
 function add_filter_icon() {
+    // Hämta alla WooCommerce-kategorier
+    $categories = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'hide_empty' => false,
+    ));
+
     echo '<div class="filter-icon-container">
             <div>
                 <svg class="filter-icon-listing" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -109,22 +115,25 @@ function add_filter_icon() {
 
     // Popup-filtreringsruta
     echo '<div id="filter-popup" class="filter-popup hidden">
-    <div class="styling-filter-listing">
-            <button id="close-filter-btn">X</button>
-            <!-- Innehåll för filtreringsfältet (kategorier, prisområde etc.) -->
-            <div class="filter-content">
-                <h3>Filtrera Produkter</h3>
-                <!-- Exempel på filter: Kategorier och Pris -->
-                <label for="categories">Kategorier:</label>
-                <select id="categories">
-                    <option value="category1">Kategori 1</option>
-                    <option value="category2">Kategori 2</option>
-                    <!-- Lägg till fler kategorier dynamiskt -->
-                </select>
-                <label for="price">Pris:</label>
-                <input type="range" id="price" name="price" min="0" max="1000">
+            <div class="styling-filter-listing">
+                <div class="filter-text-div">
+                    <h3 class="filter-text-listing">Filtrera och sortera</h3>
+                    <button id="close-filter-btn">X</button>
+                </div>
+                <!-- Innehåll för filtreringsfältet (kategorier etc.) -->
+                <div class="filter-content">';
+                
+                // Visa alla kategorier
+                if (!empty($categories) && !is_wp_error($categories)) {
+                    echo '<ul class="category-list">';
+                    foreach ($categories as $category) {
+                        echo '<li class="category-item" data-category-id="' . esc_attr($category->term_id) . '">' . esc_html($category->name) . '</li>';
+                    }
+                    echo '</ul>';
+                }
+
+    echo        '</div>
             </div>
-          </div>
           </div>';
 
     // Overlay
