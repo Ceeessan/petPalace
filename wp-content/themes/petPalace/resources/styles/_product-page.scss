@@ -116,4 +116,87 @@
     .pp-content {
         margin-left: -10px; /* Justera detta värde efter behov */
     }
+
+    /* Styling för "Lägg till i varukorg"-delen */
+    .single_add_to_cart_button {
+        background-color: #00A544; /* Ändra bakgrundsfärg till grön */
+        color: white; /* Ändra textfärg */
+        padding: 10px 20px; /* Lägg till padding */
+        border: none; /* Ta bort gräns */
+        border-radius: 5px; /* Lägg till avrundade hörn */
+        font-size: 16px; /* Ändra textstorlek */
+        cursor: pointer; /* Ändra pekaren till en hand */
+        transition: background-color 0.3s ease; /* Lägg till övergångseffekt */
+        margin-left: 10px; /* Lägger till utrymme till vänster om knappen */
+    }
+
+    .single_add_to_cart_button:hover {
+        background-color: #008B36; /* Ändra bakgrundsfärg vid hovring */
+    }
+
+    .woocommerce div.product .summary {
+        margin-top: 20px; /* Lägg till utrymme ovanför sammanfattningen */
+        border: 1px solid #ddd; /* Lägg till gräns */
+        padding: 20px; /* Lägg till padding */
+        background-color: #f9f9f9; /* Lägg till bakgrundsfärg */
+    }
+
+    .woocommerce div.product .summary h1.product_title {
+        font-size: 32px; /* Ändra storlek på produktens titel */
+        margin-bottom: 10px; /* Lägg till utrymme under titeln */
+    }
+
+    .woocommerce div.product .price {
+        font-size: 24px; /* Ändra storlek på priset */
+        color: #28a745; /* Ändra färg på priset */
+        margin-bottom: 20px; /* Lägg till utrymme under priset */
+    }
+
+    /* Styling för kvantitetsfält och knapp */
+    .woocommerce div.product form.cart {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        margin-right: 10px; /* Utrymme mellan kvantitetsfält och knapp */
+        height: 40px; /* Justera höjden för att matcha knappen */
+    }
+
+    .quantity button {
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        width: 40px; /* Gör knapparna kvadratiska */
+        height: 100%; /* Justera höjden för att matcha fältet */
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quantity input[type="number"] {
+        width: 50px;
+        text-align: center;
+        border: none;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        height: 100%; /* Justera höjden för att matcha fältet */
+        margin: 0; /* Tar bort alla marginaler */
+    }
+
+    .quantity .minus {
+        border-right: none; /* Ta bort höger gräns */
+    }
+
+    .quantity .plus {
+        border-left: none; /* Ta bort vänster gräns */
+    }
+
+    .quantity button:hover {
+        background-color: #e1e1e1;
+    }
 }
