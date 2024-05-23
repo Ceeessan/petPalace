@@ -11,12 +11,13 @@
     <?php endwhile; else : ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
     <?php endif; ?>
-</div>
-<div class="post-date">
+    <div class="post-date">
     <p>Publicerad: <?php the_time('j F, Y'); ?></p>
 </div>
 
 
 <?php comments_template(); ?>
+</div>
+
 
 <?php get_footer(); ?>
