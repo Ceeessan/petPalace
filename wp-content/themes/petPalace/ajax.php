@@ -9,6 +9,8 @@ function init_ajax(){
 
 add_action("init", "init_ajax");
 
+
+// Enqueue samt filtrering för ikonerna
 function petPalace_enqueue_scripts(){
     $theme_directory = get_template_directory_uri();
     wp_enqueue_script("petPalace_jquery", $theme_directory . "/resources/scripts/jquery.js", array(), false, true);
@@ -27,6 +29,46 @@ function petPalace_enqueue_scripts(){
 }
 
 add_action('wp_enqueue_scripts', 'petPalace_enqueue_scripts');
+
+//Filtreringsknappen
+function filter_products_by_category() {
+    if (!isset($_POST['category_id'])) {
+        wp_send_json_error('No category ID provided');
+    }
+
+    $category_id = absint($_POST['category_id']);
+
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'term_id',
+                'terms' => $category_id,
+            ),
+        ),
+    );
+
+    $query = new WP_Query($args);
+
+    if (!$query->have_posts()) {
+        wp_send_json_error('No products found');
+    }
+
+    ob_start();
+    while ($query->have_posts()) {
+        $query->the_post();
+        wc_get_template_part('content', 'product');
+    }
+    wp_reset_postdata();
+
+    $products_html = ob_get_clean();
+    wp_send_json_success(array('products' => $products_html));
+}
+add_action('wp_ajax_filter_products_by_category', 'filter_products_by_category');
+add_action('wp_ajax_nopriv_filter_products_by_category', 'filter_products_by_category');
+
 
 
 function add_custom_scripts() {
@@ -61,32 +103,6 @@ function load_more_products() {
     wp_reset_postdata();
     wp_die();
 }
-
-// Funktion för att visa resultaträknare och laddningsknapp
-function display_result_count_and_button() {
-    global $wp_query;
-    if (is_shop() || is_product_category() || is_product_tag()) {
-        $total_products = $wp_query->found_posts;
-        $products_per_page = $wp_query->get('posts_per_page');
-        $current_count = $wp_query->post_count;
-
-        if ($total_products > $products_per_page) {
-            echo '<div class="button-container">';
-            echo '<button class="load-more-button" id="load-more"> + </button>';
-            echo '</div>';
-        }
-
-        echo '<div class="custom-result-count">';
-        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
-        echo '</div>';
-
- 
-    }
-}
-add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');
-
-// Ta bort standardresultaträknaren från sin ursprungliga plats
-remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 
 

@@ -56,3 +56,23 @@ function have_coupon_message() {
    return '<div class="coupon-message-wrapper"></i><a href="#" class="showcoupon">Har du en rabattkod?<i class="fa-solid fa-angle-down"></i></a></div>';
 }
 
+
+//Gör att leveransadressen automatiskt blir samma som faktureringsadressen
+add_action('woocommerce_checkout_update_order_meta', 'set_shipping_as_billing');
+function set_shipping_as_billing($order_id) {
+    if ($_POST['ship_to_different_address'] == false || !isset($_POST['ship_to_different_address'])) {
+        $order = wc_get_order($order_id);
+
+        $order->set_shipping_first_name($order->get_billing_first_name());
+        $order->set_shipping_last_name($order->get_billing_last_name());
+        $order->set_shipping_company($order->get_billing_company());
+        $order->set_shipping_address_1($order->get_billing_address_1());
+        $order->set_shipping_address_2($order->get_billing_address_2());
+        $order->set_shipping_city($order->get_billing_city());
+        $order->set_shipping_state($order->get_billing_state());
+        $order->set_shipping_postcode($order->get_billing_postcode());
+        $order->set_shipping_country($order->get_billing_country());
+
+        $order->save();
+    }
+}

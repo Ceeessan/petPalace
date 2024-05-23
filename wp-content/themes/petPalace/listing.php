@@ -1,6 +1,23 @@
 <?php
 
-// Detta ska bli ett val för företaget...
+function wrap_woocommerce_listing_page_start() {
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        echo '<div class="custom-wrapper-listing-page">';
+    }
+}
+
+function wrap_woocommerce_listing_page_end() {
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        echo '</div>';
+    }
+}
+
+add_action('woocommerce_before_main_content', 'wrap_woocommerce_listing_page_start', 5);
+add_action('woocommerce_after_main_content', 'wrap_woocommerce_listing_page_end', 50);
+
+
+
+// Detta är ett val för företaget
 function display_sale_banner(){
     
     $display_sale_banner = get_option('display_sale_banner');
@@ -26,7 +43,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 
 
-// Lägger till ikonerna, dessa ska ha filtrerings-funktion.
+// Lägger till ikonerna, dessa har filtrerings-funktion.
 function display_icons_filter() {
     echo '<div class="icons-filter-div">
 
@@ -46,7 +63,7 @@ function display_icons_filter() {
     </div>
     
     <div class="icon-div"> 
-        <img class="icon-animals bird-icon" data-tag="faglar" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
+        <img class="icon-animals bird-icon" data-tag="bird" src="'. get_template_directory_uri() . '/resources/images/bird-icon.png">
         <p class="icon-text">Fåglar</p>  
     </div>
 
@@ -81,8 +98,13 @@ function get_searchbar() {
 
 add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
-
 function add_filter_icon() {
+    // Hämta alla WooCommerce-kategorier
+    $categories = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'hide_empty' => false,
+    ));
+
     echo '<div class="filter-icon-container">
             <div>
                 <svg class="filter-icon-listing" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -90,8 +112,36 @@ function add_filter_icon() {
                 </svg>
             </div>
           </div>';
+
+    // Popup-filtreringsruta
+    echo '<div id="filter-popup" class="filter-popup hidden">
+            <div class="styling-filter-listing">
+                <div class="filter-text-div">
+                    <h3 class="filter-text-listing">Filtrera och sortera</h3>
+                    <button id="close-filter-btn">X</button>
+                </div>
+                <!-- Innehåll för filtreringsfältet (kategorier etc.) -->
+                <div class="filter-content">';
+                
+                // Visa alla kategorier
+                if (!empty($categories) && !is_wp_error($categories)) {
+                    echo '<ul class="category-list">';
+                    foreach ($categories as $category) {
+                        echo '<li class="category-item" data-category-id="' . esc_attr($category->term_id) . '">' . esc_html($category->name) . '</li>';
+                    }
+                    echo '</ul>';
+                }
+
+    echo        '</div>
+            </div>
+          </div>';
+
+    // Overlay
+    echo '<div id="overlay" class="overlay hidden"></div>';
 }
-add_action( 'woocommerce_before_shop_loop', 'add_filter_icon' );
+add_action('woocommerce_before_shop_loop', 'add_filter_icon');
+
+
 
 // Tar bort stjärnbetyg från produktlisting
 function disable_star_ratings_from_product_listing() {
@@ -109,7 +159,7 @@ function disable_star_ratings_from_product_listing() {
 add_action( 'init', 'disable_star_ratings_from_product_listing' );
 
 
-// Lägger till egen design på betyg på hemsidan
+// Lägger till egen betyg och design på recensioner på hemsidan
 function petPalace_add_star_rating() {
     global $product;
     $rating = $product->get_average_rating();
@@ -128,19 +178,45 @@ add_action( 'woocommerce_after_shop_loop_item', 'petPalace_add_star_rating', 5 )
 
 //____________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
 
+// Funktion för att visa resultaträknare och laddningsknapp
+function display_result_count_and_button() {
+    global $wp_query;
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        $total_products = $wp_query->found_posts;
+        $products_per_page = $wp_query->get('posts_per_page');
+        $current_count = $wp_query->post_count;
+
+        if ($total_products > $products_per_page) {
+            echo '<div class="button-container">';
+            echo '<button class="load-more-button" id="load-more"> + </button>';
+            echo '</div>';
+        }
+
+        echo '<div class="custom-result-count">';
+        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
+        echo '</div>';
+
+ 
+    }
+}
+add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');
+
+// Ta bort standardresultaträknaren från sin ursprungliga plats
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 
-//Denna ska fixas!!!! SKa lägga till text i settings.
-function display_member_banner(){
-    
-    $display_sale_banner = get_option('display_sale_banner');
+
+// läggs till text för "medlem" i settings.
+function display_member_banner() {
+    // Hämta värdet för checkboxen för member-banner
+    $display_second_banner = get_option('display_second_banner');
     
     // Om checkboxen är markerad, visas meddelandet
-    if ($display_sale_banner) {
-        $store_message = get_option('store_message');
-        if (!empty($store_message)) {
+    if ($display_second_banner) {
+        $second_banner_message = get_option('second_banner_message');
+        if (!empty($second_banner_message)) {
             echo '<div class="member-div-listing">';
-            echo '<div class="banner-text-listing">' . $store_message . '</div>';
+            echo '<div class="banner-text-listing">' . $second_banner_message . '</div>';
             echo '<div class="sale-banner-listing-img-wrapper">';
             echo '<img src="' . get_template_directory_uri() . '/resources/images/member-dog-human.png" class="sale-banner-listing-img">';
             echo '</div>';
@@ -148,17 +224,51 @@ function display_member_banner(){
         } 
     }
 }
-add_action( 'woocommerce_after_main_content', 'display_member_banner');
+add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
-function custom_add_recommendations() {
-  if ( is_active_sidebar( 'widget-area-id' ) ) : ?>
-        <div id="primary-sidebar" class="widget-area">
-            <?php dynamic_sidebar( 'widget-area-id' ); ?>
-        </div><!-- #primary-sidebar -->
-    <?php endif; 
-    
+
+// Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
+function display_related_products() {
+    if ( class_exists( 'WooCommerce' ) ) {
+       
+        global $product;
+        if ( $product && $product->get_id() ) {
+            $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
+            if ( $related_products ) {
+                echo '<div class="container-related-listing">';
+                echo '<div class="related-products">';
+                echo '<h2>Relaterade produkter</h2>';
+                echo '<ul class="products">';
+                foreach ( $related_products as $related_product_id ) {
+                    $related_product = wc_get_product( $related_product_id );
+                    if ( $related_product ) {
+                        echo '<li class="product">';
+                        echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
+                        echo $related_product->get_image();
+                        echo '<h3>' . $related_product->get_name() . '</h3>';
+                        echo '<span class="price">' . $related_product->get_price_html() . '</span>';
+                        echo '</a>';
+                        // Lägg till knapp för att lägga till produkten i varukorgen
+                        echo apply_filters( 'woocommerce_loop_add_to_cart_link', // Använd WooCommerce-filtret för att skapa knappens HTML
+                            sprintf( '<a href="%s" data-quantity="1" class="button %s" %s>%s</a>',
+                                esc_url( $related_product->add_to_cart_url() ),
+                                $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
+                                $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
+                                esc_html( $related_product->add_to_cart_text() )
+                            ),
+                        $related_product ); // Skicka produktobjektet till filtret
+                        echo '</li>';
+                    }
+                }
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+    }
 }
-add_action( 'woocommerce_after_shop_loop', 'custom_add_recommendations', 10 );
+add_action( 'woocommerce_after_shop_loop', 'display_related_products', 20 );
+
 
 ?>

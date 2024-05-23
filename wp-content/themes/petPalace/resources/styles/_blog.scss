@@ -1,0 +1,219 @@
+//Blogg
+.blog-content{
+    margin: 2em 10em;
+    line-height: 1.5em;
+
+    h1{
+        text-align: center;
+        color: #3B644C;
+        font-family: "Roboto-Regular";
+        margin-bottom: 0.8em;
+    }
+
+    .about-blog{
+        margin: auto;
+        width: 80%;
+        text-align: center;
+        padding-bottom: 1em;
+        font-weight: bold;
+    }
+
+    article{
+        margin: 20px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 8px;
+        padding: 40px;
+        .entry-title{
+            a{
+                text-decoration: none;
+                color: #3B644C;
+                font-family: "Roboto-Bold";
+            }
+        }
+        .post-date{
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    }
+}
+
+//Blogginlägg
+.single-post-content{
+    margin: 4em 20em;
+    h1{
+        color: #3B644C;
+        font-family: "Roboto-Regular";
+        font-size: 30px;
+    }
+    .entry-content{
+        p{
+            padding: 20px 0;
+            line-height: 1.5em;
+        }
+        .wp-block-heading{
+            margin-top: 20px;
+            font-size: 20px;
+            font-family: "Roboto-Bold";
+            color: #3B644C;
+        }
+        ol{
+            list-style-position: inside;
+            li{
+                margin-top: 1em;
+            }
+        }
+        ul{
+            list-style-position: inside;
+            li{
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .post-date{
+        font-style: oblique;
+        padding: 1em 0 2em;
+        border-bottom: 3px solid #3B644C;
+    }
+
+    #comments{
+        margin: 2em 0 1em;
+    }
+
+    .commentlist{
+        list-style-type: none;
+        padding-bottom: 2em;
+        border-bottom: 3px solid #3B644C;
+        p{
+            margin-top: 5px;
+        }
+        .comment {
+            margin-top: 2em;
+            .comment-awaiting-moderation{
+                font-size: 12px;
+            }
+        }
+
+        .comment-meta{
+            a{
+                text-decoration: none;
+                font-size: 12px;
+                color: #3B644C;
+            }
+        }
+
+        .reply{
+            margin-top: 8px;
+            a{
+                color: #3B644C;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .comment-respond{
+        padding: 2em 0 1em 0;
+        margin: auto;
+        width: 50%;
+        .logged-in-as{
+            text-align: center;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        .comment-reply-title{
+            text-align: center;
+            font-size: 20px;
+            font-family: "Roboto-Bold";
+        }
+        .comment-notes, 
+        .comment-form-cookies-consent{
+            margin-top: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+        .comment-form-comment, 
+        .comment-form-author,
+        .comment-form-email,
+        .comment-form-url {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        
+        .comment-form-comment label,
+        .comment-form-author label,
+        .comment-form-email label,
+        .comment-form-url label {
+            order: -1;
+        }
+
+        input, textarea{
+            padding: 7px;
+            margin: 5px 0;
+            border: 1px solid #979797;
+            border-radius: 5px;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+            &:focus {
+                border: 1px solid #3B644C;
+              }
+        }
+
+        .form-submit{
+            text-align: center;
+            margin-top: 2em;
+            .submit{
+                background-color: #82A2D7;
+                border-radius: 8px;
+                color: #fff;
+                padding: 15px 30px;
+                border: none;
+                font-family: "Roboto-Medium";
+                font-size: 14px;
+                &:hover{
+                    background-color: #6388C5;
+                }
+            }
+        }
+
+        
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    //Blogg
+    .blog-content{
+        margin: 30px 20px;
+        h1{
+            font-size: 28px;
+            margin-bottom: 0.5em;
+        }
+        .about-blog{
+            margin: auto;
+            width: 90%;
+            text-align: center;
+            padding-bottom: 0.1em;
+            font-size: 14px;
+        }
+    }
+
+
+
+    //Blogginlägg
+    .single-post-content{
+        margin: 2em;
+        .comment-respond{
+            margin: auto;
+            width: 100%;
+        }
+    }
+
+}
+  
+
+  

@@ -67,6 +67,39 @@ function petPalace_add_settings_init(){
         "butik",
         "butik_sale_banner"
     );
+    // Lägger till inställningar för en andra banner
+    add_settings_section(
+        "butik_second_banner",
+        "Second Banner",
+        "petPalace_add_second_banner_section",
+        "butik"
+    );
+    register_setting(
+        "butik",
+        "second_banner_message"
+    );
+    register_setting(
+        "butik",
+        "display_second_banner"
+    );
+    add_settings_field(
+        "second_banner_message",
+        "Second Banner Message",
+        "petPalace_section_setting",
+        "butik",
+        "butik_second_banner",
+        array(
+            "option_name" => "second_banner_message",
+            "option_type" => "text"
+        )
+    );
+    add_settings_field(
+        "display_second_banner",
+        "Display Second Banner",
+        "petPalace_display_second_banner_setting",
+        "butik",
+        "butik_second_banner"
+    );
 }
 
 
@@ -92,7 +125,19 @@ function petPalace_add_sale_banner_section(){
     echo "<p>Inställningar för rea-bannern</p>";
 }
 
-// Ritar ut inställningsfältet för att välja om rea-bannern ska visas eller inte
+// Ritar ut sektionen för andra bannern
+function petPalace_add_second_banner_section(){
+    echo "<p>Inställningar för andra bannern</p>";
+}
+
+// Ritar ut inställningsfältet för att välja om andra bannern ska visas eller inte
+function petPalace_display_second_banner_setting(){
+    $option_name = "display_second_banner";
+    $option_value = get_option($option_name);
+    echo '<input type="checkbox" id="' . $option_name . '" name="' . $option_name . '" value="1" ' . checked(1, $option_value, false) . '/>';
+}
+
+//Ritar ut inställningsfält
 function petPalace_display_sale_banner_setting(){
     $option_name = "display_sale_banner";
     $option_value = get_option($option_name);
