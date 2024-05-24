@@ -64,7 +64,7 @@
                     <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" title="<?php _e('My Account', 'your-theme-slug'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/Ikon-gubbe.png" alt="My Account">
                     </a>
-                    <a href="<?php echo get_permalink(wc_get_page_id('wishlist')); ?>" title="<?php _e('Wishlist', 'your-theme-slug'); ?>">
+                    <a href="https://petpalace.test/wishlist/" title="<?php _e('Wishlist', 'your-theme-slug'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ikon-heart.png" alt="Wishlist">
                     </a>
                     <a href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'your-theme-slug'); ?>">

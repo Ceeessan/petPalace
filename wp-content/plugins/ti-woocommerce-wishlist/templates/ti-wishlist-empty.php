@@ -20,9 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	} ?>
 	<p class="cart-empty woocommerce-info">
 		<?php if ( get_current_user_id() === $wishlist['author'] ) { ?>
-			<?php esc_html_e( 'Your Wishlist is currently empty.', 'ti-woocommerce-wishlist' ); ?>
+			<?php esc_html_e( 'Du har inga produkter i önskelistan.', 'ti-woocommerce-wishlist' ); ?>
 		<?php } else { ?>
-			<?php esc_html_e( 'Wishlist is currently empty.', 'ti-woocommerce-wishlist' ); ?>
+			<?php esc_html_e( 'Önskelistan är tom.', 'ti-woocommerce-wishlist' ); ?>
 		<?php } ?>
 	</p>
 
