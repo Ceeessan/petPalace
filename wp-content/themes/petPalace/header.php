@@ -11,6 +11,27 @@
 <body>
     <?php wp_body_open(); ?>
 
+
+    <div class="message-over-header <?php echo (get_option('display_header_text')) ? '' : 'no-message'; ?>">
+    <?php
+    $display_header_message = get_option('display_header_text');
+
+    if ($display_header_message) {
+        $header_message = get_option('header_message');
+        if (!empty($header_message)) {
+            echo '<div class="header-message">' . esc_html($header_message) . '</div>';
+        }
+    } else {
+        echo '<style>.delivery-truck { display: none; }</style>';
+    }
+    ?>
+    <img class="delivery-truck" src="<?php echo get_template_directory_uri(); ?>/resources/images/delivery.png" alt="truck">
+</div>
+
+
+
+
+
     <header>
         <div class="header-container"> 
             <button class="hamburger" aria-label="Toggle menu">
