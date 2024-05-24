@@ -179,6 +179,8 @@
     }
 
     .quantity input[type="number"] {
+        -webkit-appearance: none; /* Ta bort pilar i WebKit-baserade webbläsare */
+        -moz-appearance: textfield; /* Ta bort pilar i Firefox */
         width: 50px;
         text-align: center;
         border: none;
