@@ -12,33 +12,6 @@ jQuery(document).ready(function ($) {
 
 
 
-// filtrerings-ikonen
-document.addEventListener('DOMContentLoaded', function () {
-    const filterBtn = document.querySelector('.filter-icon-container');
-    const filterPopup = document.getElementById('filter-popup');
-    const closeFilterBtn = document.getElementById('close-filter-btn');
-    const overlay = document.getElementById('overlay');
-
-    const openFilter = function () {
-        filterPopup.classList.add('show');
-        overlay.classList.add('show');
-    };
-
-    const closeFilter = function () {
-        filterPopup.classList.remove('show');
-        overlay.classList.remove('show');
-    };
-
-    filterBtn.addEventListener('click', openFilter);
-    closeFilterBtn.addEventListener('click', closeFilter);
-    overlay.addEventListener('click', closeFilter);
-});
-
-
-
-
-
-
 
 //_____________________EFTER PRODUCT-CONTENT LISTING-PAGE
 

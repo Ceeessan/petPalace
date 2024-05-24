@@ -100,56 +100,7 @@ add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
 
 
-//Filter
-function add_filter_icon() {
-    // Hämta produktattribut
-    $product_attributes = wc_get_attribute_taxonomies();
 
-    echo '<div class="filter-icon-container">
-            <div>
-                <svg class="filter-icon-listing" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                    <path fill="none" stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z"/>
-                </svg>
-            </div>
-          </div>';
-
-    // Popup-filtreringsruta
-    echo '<div id="filter-popup" class="filter-popup hidden">
-            <div class="styling-filter-listing">
-                <div class="filter-text-div">
-                    <h3 class="filter-text-listing">Filtrera och sortera</h3>
-                    <button id="close-filter-btn">X</button>
-                </div>
-                <!-- Innehåll för filtreringsfältet (taggar etc.) -->
-                <div class="filter-content">';
-
-    // Visa checkboxar för produktattribut
-    echo '<form id="product-filter-form">';
-    foreach ($product_attributes as $attribute) {
-        $attribute_name = $attribute->attribute_name;
-        $attribute_label = wc_attribute_label($attribute_name);
-        $terms = get_terms('pa_' . $attribute_name, array('hide_empty' => false));
-        if (!empty($terms)) {
-            echo '<h4>' . esc_html($attribute_label) . '</h4>';
-            echo '<ul class="tag-list">';
-            foreach ($terms as $term) {
-                echo '<li class="tag-item"><input type="checkbox" name="product_attributes[' . esc_attr($attribute_name) . '][]" value="' . esc_attr($term->slug) . '"> ' . esc_html($term->name) . '</li>';
-            }
-            echo '</ul>';
-        }
-    }
-
-    echo '<button class="filter-btn-listing"> Filtrera </button>';
-    echo '</form>';
-
-    echo '</div>
-            </div>
-          </div>';
-
-    // Overlay
-    echo '<div id="overlay" class="overlay hidden"></div>';
-}
-add_action('woocommerce_before_shop_loop', 'add_filter_icon');
 
 
 
