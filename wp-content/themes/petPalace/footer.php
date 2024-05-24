@@ -1,29 +1,66 @@
+<footer>
+<?php wp_footer(); ?>
 
-    <footer>
-        <div class="footer-container">
+<div class="footer-container">
             <div class="footer-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                     <img src="<?php echo get_template_directory_uri(); ?>/resources/images/Loggan.png" alt="<?php bloginfo('name'); ?>">
                 </a>
             </div>
-            <div>
-                <h2>Contact us</h2>
-                <p>385 Noah Place Suite 878</p>
-                <p>info@form.com</p>
-                <p>877-255-7945</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><img src="wp-content/themes/petPalace/resources/images/icons8-facebook-50 (1).png" alt="Facebook"></a>
-                <a href="#"><img src="wp-content/themes/petPalace/resources/images/icons8-instagram-50 (1).png" alt="Instagram"></a>
-            </div>
-            <div class="footer-links">
-                <p>Privacy & Cookies | Terms & Conditions | <a href="#">Blog</a></p>
-            </div>
-            <div class="footer-copyright">
-                <p>Copyright &copy;2024 Company | All rights reserved</p>
-            </div>
-        </div>
-    </footer>
-    <?php wp_footer(); ?>
+     
+        <div class="menu-text">
+            <h4 class= contact-text>Kontakta oss</h4>
+        <span> 
+        <?php
+                $menu = array(
+                    'theme_location' => 'footer_contact',
+                    'menu_id' => 'footer_contact',
+                    'container' => 'nav',
+                    'container_class' => 'menu'
+                );
+                wp_nav_menu($menu);
+                ?>   
+                 </span>  
+    </div> 
+
+
+        <div class="menu-social">
+            <span>
+        <?php
+                $menu = array(
+                    'theme_location' => 'footer_socialamedier',
+                    'menu_id' => 'footer_socialamedier',
+                    'container' => 'nav',
+                    'container_class' => 'menu'
+                );
+                wp_nav_menu($menu);
+                ?>
+            </span>
+       
+        <div>
+
+        <div class= "menu-terms-conditions">
+            <span> 
+                <?php
+                $menu = array(
+                    'theme_location' => 'footer_info',
+                    'menu_id' => 'footer_kundservice',
+                    'container' => 'nav',
+                    'container_class' => 'menu'
+                );
+                wp_nav_menu($menu);
+                ?>
+            </span>
+        </div>  
+    </div>
+          
+    <div class="footer-message">
+    <?php echo esc_html(get_option('footer_message')); ?>
+</div>
+
+
+</footer>
+
+
 </body>
 </html>

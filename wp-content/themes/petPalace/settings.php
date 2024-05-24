@@ -100,6 +100,34 @@ function petPalace_add_settings_init(){
         "butik",
         "butik_second_banner"
     );
+
+    //Lägger till för footer
+    add_settings_section(
+        "butik_footer_text",
+        "Footer text",
+        "petPalace_add_footer_section",
+        "butik"
+    );
+    register_setting(
+        "butik",
+        "footer_message"
+    );
+    register_setting(
+        "butik",
+        "display_footer_text"
+    );
+    add_settings_field(
+        "footer_message",
+        "Footer text Message",
+        "petPalace_section_setting",
+        "butik",
+        "butik_footer_text",
+        array(
+            "option_name" => "footer_message",
+            "option_type" => "text"
+        )
+    );
+
 }
 
 
@@ -129,6 +157,13 @@ function petPalace_add_sale_banner_section(){
 function petPalace_add_second_banner_section(){
     echo "<p>Inställningar för andra bannern</p>";
 }
+
+function petPalace_add_footer_section(){
+    echo "<p>Inställningar för footer</p>";
+}
+
+
+
 
 // Ritar ut inställningsfältet för att välja om andra bannern ska visas eller inte
 function petPalace_display_second_banner_setting(){
