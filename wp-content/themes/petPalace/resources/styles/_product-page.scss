@@ -128,6 +128,7 @@
         cursor: pointer; /* Ändra pekaren till en hand */
         transition: background-color 0.3s ease; /* Lägg till övergångseffekt */
         margin-left: 10px; /* Lägger till utrymme till vänster om knappen */
+        height: 40px; /* Justera höjden så att den matchar kvantitetsfältet */
     }
 
     .single_add_to_cart_button:hover {
@@ -161,7 +162,7 @@
     .quantity {
         display: flex;
         align-items: center;
-        border: 1px solid #ddd;
+        border: none; /* Ta bort den oönskade ramen */
         margin-right: 10px; /* Utrymme mellan kvantitetsfält och knapp */
         height: 40px; /* Justera höjden för att matcha knappen */
     }
@@ -181,7 +182,7 @@
     .quantity input[type="number"] {
         -webkit-appearance: none; /* Ta bort pilar i WebKit-baserade webbläsare */
         -moz-appearance: textfield; /* Ta bort pilar i Firefox */
-        width: 50px;
+        width: 60px; /* Öka bredden för att matcha knappen */
         text-align: center;
         border: none;
         border-left: 1px solid #ddd;
