@@ -9,7 +9,6 @@
 <body>
     <!-- Huvudinnehåll som tar upp resterande utrymme -->
     <div class="content">
-        <p>Your main content goes here.</p>
     </div>
     <!-- Footer -->
     <footer>
