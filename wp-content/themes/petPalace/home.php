@@ -7,11 +7,19 @@
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <h2 class="entry-title"><a><?php the_title(); ?></a></h2>
                 <div class="entry-content">
                 <p class="post-date"><?php the_time('j F, Y'); ?></p>
 
                     <?php the_excerpt(); ?>
+                </div>
+                <div id="container">
+                    <button class="learn-more"><a href="<?php the_permalink(); ?>">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Läs inlägg</span>
+                    </button>
                 </div>
             </article>
         <?php endwhile; ?>

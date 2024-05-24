@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- detta är för att Css ska visas på sidan -->
     <?php wp_head(); ?>
@@ -12,12 +13,17 @@
 
     <header>
         <div class="header-container"> 
-            <div class="primary-header-menu">
-                <button class="hamburger" aria-label="Toggle menu">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
                     </span>
-                </button>
+            </button>
+        <div class="site-branding">
+                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/Loggan.png" alt="<?php bloginfo('name'); ?>">
+                </a>
+            </div>
+            <div class="primary-header-menu">
                 <nav class="nav-menu">
                     <?php
                     $menu = array(
@@ -31,12 +37,6 @@
                     ?> 
                 </nav>
             </div> 
-            
-            <div class="site-branding">
-                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/Loggan.png" alt="<?php bloginfo('name'); ?>">
-                </a>
-            </div>
         
             <div class="secondary-header-menu">
                 <div class="header-icons">
@@ -54,7 +54,6 @@
         </div> 
     </header>
 
-    <?php wp_footer(); ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var hamburger = document.querySelector('.hamburger');
@@ -66,5 +65,3 @@
             });
         });
     </script>
-</body>
-</html>

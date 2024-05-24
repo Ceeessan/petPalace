@@ -1,9 +1,11 @@
 .custom-wrapper-listing-page{
     main{
         font-family: 'Roboto-Regular';
-        // margin: 0 80px;
-        margin-top: 20px;
+        margin: 0 80px;
+        padding-top: 4.5em;
         padding-bottom: 80px;
+        overflow: hidden;
+
     
     
         .woocommerce-products-header{
@@ -378,7 +380,6 @@
 
             main{
                 margin: 0 40px;
-
 
 
                 .custom-search-form{ 
