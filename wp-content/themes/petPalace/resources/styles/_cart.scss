@@ -2,6 +2,7 @@
     text-align: center;
     margin: 20px 0;
     font-size: 32px;
+    padding-top: 2.5em;
 }
 
 .woocommerce table.shop_table_responsive tr td, 
@@ -190,7 +191,7 @@ button#place_order{
 
 .wc-empty-cart-message{
     text-align: center;
-    padding-top: 80px;
+    padding-top: 9em;
 }
 
 .return-to-shop{
@@ -217,7 +218,7 @@ button#place_order{
 @media screen and (max-width: 767px) {
     .cart-title{
         font-size: 16px;
-        margin: 0;
+        margin-top: 3.8em;
     }
 
 
