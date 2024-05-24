@@ -27,7 +27,10 @@ header {
                     padding: 14px 20px;
                     text-decoration: none;
                     color:#fff;
-                    font-family: "Roboto-Medium";
+                    font-size: 18px;
+                    &:hover{
+                        color: #CBB05B;
+                    }
                 }
             }
         }
