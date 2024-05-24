@@ -75,8 +75,6 @@ add_action('woocommerce_before_shop_loop', 'display_icons_filter');
 
 
 
-
-
 //Sök-ruta
 function custom_product_search_form($form) {
     $form = '<form role="search" method="get" id="product-search-form" class="custom-search-form" action="' . esc_url( home_url( '/' ) ) . '">
