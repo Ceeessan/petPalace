@@ -26,10 +26,17 @@
     .custom-div{
         width: 140%;
         .product-remove{
-            display: block;
+            display: inline-block;
             position: absolute;
             left: 58%;
-
+            a{
+                font-size: 2em;
+                transition: none;
+                &:hover{
+                    background-color: white;
+                    color: red !important;
+                }
+            }
         }
         .product-thumbnail{
             padding: 20px;
@@ -109,19 +116,6 @@
     }
 }
 
-
-.woocommerce-cart-form__cart-item{
-    a.remove{
-    font-size: 2em;
-    width: 100%;
-    &:hover{
-        background-color: white;
-        color: red !important;
-    }
-}
-}
-
-
 .woocommerce table.cart{
     img{
         width: auto;
@@ -144,30 +138,28 @@ button[name="update_cart"] {
 
 .quantity{
     display: inline-block;
+    border: 1px solid #ddd;
 }
 
 .product-quantity input[type="number"] {
     width: 50px;
-    padding: 5px;
-    border: 1px solid #ccc;
+    border: none;
     margin: -4px;
+    height: auto;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-    &:focus {
-        border: 1px solid #00A544;
-    }
 }
 
 .product-quantity .minus,
 .product-quantity .plus {
-    background-color: #00A544;
-    color: #fff;
+    background-color: #f1f1f1;
     border: none;
-    padding: 6px 15px;
+    padding: 8px 15px;
+    font-size: 16px;
     cursor: pointer;
     &:hover{    
-        background-color: #008537;
+        background-color: #e1e1e1;
     }
 }
 
@@ -308,6 +300,12 @@ button#place_order{
             &::before{
                 display: none;
             }
+        }
+
+        .product-quantity .minus,
+        .product-quantity .plus {
+            padding: 5px 15px;
+            font-size: 14px;
         }
 
         td.product-quantity::before{
