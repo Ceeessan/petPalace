@@ -1,8 +1,9 @@
 .cart-title{
     text-align: center;
     margin: 20px 0;
-    font-size: 32px;
-    padding-top: 3em;
+    padding-top: 4em;
+    font-family: "Roboto-Regular"; 
+    color:#464646;
 }
 
 .woocommerce table.shop_table_responsive tr td, 
@@ -218,7 +219,7 @@ button#place_order{
 @media screen and (max-width: 767px) {
     .cart-title{
         font-size: 16px;
-        margin-top: 3.8em;
+        margin-top: 5em;
     }
 
 
