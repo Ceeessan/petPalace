@@ -2,11 +2,9 @@
     margin: 8em 2em 2em 2em;
     .tinv-header{
         text-align: center;
-        border-bottom: 1px solid #DBDBDB;
         h2{
             font-family: "Roboto-Regular"; 
             color:#464646;
-            padding-bottom: 1em;
         }
     }
     .cart-empty{
@@ -93,7 +91,6 @@
 @media screen and (max-width: 767px) {
     .tinv-wishlist {
         .tinv-header{
-            border: none;
             h2{font-size: 18px; padding-bottom: 0;}
         }
         margin-top: 6.8em;
