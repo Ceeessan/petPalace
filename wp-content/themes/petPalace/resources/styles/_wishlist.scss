@@ -2,6 +2,12 @@
     margin: 8em 2em 2em 2em;
     .tinv-header{
         text-align: center;
+        border-bottom: 1px solid #DBDBDB;
+        h2{
+            font-family: "Roboto-Regular"; 
+            color:#464646;
+            padding-bottom: 1em;
+        }
     }
     .cart-empty{
         text-align: center;
@@ -46,13 +52,14 @@
                         }
                     }
                     .product-action{
+                        width: unset;
                         button, a{
                             background-color:#00A544 !important;
                             color: white;
                             font-size: 14px;
                             border-radius: 5px;
                             margin-left: 5px;
-                            padding: 12px;
+                            padding: 12px 0;
                             &:hover{    
                                 background-color: #008537;
                                 color: white;
@@ -64,30 +71,6 @@
             tfoot{
                 tr{
                     td{
-                        .tinvwl-to-left{
-                            select{
-                                padding: 7px;
-                                height: 3.47em;
-                                border: 1px solid #979797;
-                                border-radius: 5px;
-                                -webkit-transition: 0.5s;
-                                transition: 0.5s;
-                                outline: none;
-                                &:focus {
-                                    border: 1px solid #3B644C;
-                                  }
-                            }
-                            button{
-                                background-color: #82A2D7;
-                                color: white;
-                                padding: 15px;
-                                border-radius: 8px;
-                                &:hover{
-                                    background-color: #6388C5;
-                                    color: white;
-                                }
-                              }
-                        }
                         .tinvwl-to-right{
                             button{
                                 background-color: #82A2D7;
@@ -105,5 +88,82 @@
             }
         }
     }
-
 }
+
+@media screen and (max-width: 767px) {
+    .tinv-wishlist {
+        .tinv-header{
+            border: none;
+            h2{font-size: 18px; padding-bottom: 0;}
+        }
+        margin-top: 6.8em;
+        form{ margin-top: -2.5em;
+            table{
+                thead{
+                    tr{
+                        th{
+                            .tinvwl-mobile{display: none;}
+                        }
+                    }
+                }
+                tbody{
+                    display: flex;
+                    flex-direction: column;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+
+                    tr{
+                        border: 1px solid #DBDBDB;
+                        border-radius: 3px;
+                        width: 49%;
+                        margin-bottom: 0.5em;
+
+                        .product-remove{
+                            button{margin-left:5.8em; margin-top: -0.6em;}
+                        }
+                        .product-name{font-size: 12px; margin-top: -1.6em;}
+                        .product-thumbnail{
+                            margin-top: -2em;
+                            img{max-width: 100%;}
+                        }
+                        .product-price{display: block; font-size: 12px; margin-top: -0.5em;}
+                        .product-stock{display: block; font-size: 12px; margin-top: -0.5em;}
+                        .product-action{
+                            margin-top: -0.8em;
+                            display: block;
+                            button{
+                                padding: 0.6em 0 0.8em;
+                                span{
+                                    font-size: 12px;
+                                }
+                            }
+                            a{font-size: 12px;
+                                padding: 0.9em 0 0.9em;
+                            }
+                        }
+                    }
+                }
+                tfoot{
+                    tr{
+                        td{
+                            .tinvwl-to-right{
+                                margin-bottom: -3em;
+                                button{
+                                    background-color: #82A2D7;
+                                    color: white;
+                                    padding: 15px;
+                                    border-radius: 8px;
+                                    font-size: 12px;
+                                    &:hover{
+                                        background-color: #6388C5;
+                                        color: white;
+                                    }
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}     
