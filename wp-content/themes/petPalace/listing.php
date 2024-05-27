@@ -98,11 +98,6 @@ add_action( 'woocommerce_before_shop_loop', 'get_searchbar' );
 
 
 
-
-
-
-
-
 // Tar bort stjärnbetyg från produktlisting
 function disable_star_ratings_from_product_listing() {
     global $wp_filter;

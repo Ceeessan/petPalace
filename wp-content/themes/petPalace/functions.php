@@ -8,7 +8,6 @@ if (!defined('ABSPATH')) {
 // Inkludera nödvändiga filer
 require_once("vite.php");
 require_once("init.php");
-require_once("shortcodes.php");
 require_once("settings.php");
 require_once("listing.php");
 require_once("product-page.php");
@@ -35,6 +34,7 @@ add_action('after_setup_theme', 'petPalace_add_woocommerce_support');
 
 // Initialize theme
 require_once(get_template_directory() . "/init.php");
+require_once get_template_directory() . '/shortcodes.php';
 
 
 

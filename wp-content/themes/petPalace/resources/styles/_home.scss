@@ -1,0 +1,259 @@
+.main-content-homepage{
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width: calc(100% );
+    margin-top: 8rem;
+    
+    font-family: 'Roboto-Regular';
+
+    padding-bottom: 80px;
+    overflow: hidden;
+
+    .custom-search-form-homepage{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        
+
+        input{
+            width: calc(80% - 20px);
+            height: 40px;
+            background-color: #F2F5F7;
+            // border-left: 1px solid #272727;
+            // border-top: 1px solid #272727;
+            // border-bottom: 1px solid #272727;
+            // border-right: none;
+            border:none;
+            border-radius: 5px 0px 0px 5px;
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+        button{
+            height: 40px;
+            width: 40px;
+            padding-top: 7px;
+            padding-right: 5px;
+            background-color: #F2F5F7;
+            font-size: 26px;
+            // border-right: 1px solid #272727;
+            // border-top: 1px solid #272727;
+            // border-bottom: 1px solid #272727;
+            // border-left: none;
+            border:none;
+            border-radius: 0px 5px 5px 0px;
+            cursor:pointer
+                
+        }
+    }
+
+
+
+
+    .sale-banner-homepage{ 
+        margin-bottom: 10px;
+        width: calc(100%);
+        position:relative;
+        
+
+        .banner-text-homepage{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 220px;
+            transform: translate(-50%, -50%);
+            color:#F8F8F8;
+            font-size: 28px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .sale-banner-homepage-img{
+            width: 100%;
+            height: 370px;
+            border-radius: 5px;
+            background-color: red;
+        }
+    }  
+
+
+    .icons-homepage{
+        .icons-filter-div{
+            display:flex;
+            flex-direction: row;
+            width: calc(100% - 10px);
+            justify-content: space-around;
+            margin-bottom: 30px;
+    
+            .icon-animals{
+                width: 80px;
+                height: 80px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                transition: filter 0.2s ease;
+                cursor:pointer    
+            }
+    
+            .icon-animals:hover{
+                filter: brightness(95%);
+                
+            }
+    
+            .icon-text{
+                text-align: center;
+                margin-top: -20px;
+                font-size: 14px;
+                    
+            }  
+        }
+    }
+
+    //utvalda märken
+    .brands-homepage{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 50px;
+
+        .div-wrapper-homepage{
+            
+        }
+
+        .brand-container-homepage{
+ 
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px; 
+            margin: 0 auto;
+           
+
+    
+            .popular-brands-text{
+                // width: 500px;
+                text-align: center;
+            }
+         
+            img{
+                width: 200px;
+                height: 150px;
+            }
+    
+        }
+
+    }
+
+
+
+//produkterna
+    .best-rated-products-homepage{
+        ul.products{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+    
+           li.product{
+                height: auto;
+                padding: 10px;
+                box-sizing: border-box;
+                box-shadow: 0 0 2px rgba(0,0,0,0.2);
+                background-color: #ffffff;
+                border-radius: 2px;
+                margin: 10px;
+    
+                img{ 
+                    width: 100%;
+                    background-color: #fffdfa;
+                    border-radius: 5px;
+                    height: 210px;
+                    margin-bottom: 5px;
+                }
+    
+                a{
+                    text-decoration: none;
+                    display:flex;
+                    flex-direction: column;
+                    
+                }
+    
+                .onsale{
+                    margin-top: 3px;
+                    margin-left: 3px;
+                    padding: 3px;
+                    position: absolute;
+                    background-color: #F12B2C;
+                    color: #F8F8F8;
+                    border-radius: 2px;
+                    font-size: 12px;
+                    
+                }
+    
+                .woocommerce-loop-product__title{
+                    color: #272727;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    
+                }
+    
+    
+    
+                .price{
+                    color: #5b5b5b;
+                    font-size: 18px;
+                    list-style: none;
+    
+    
+                    ins{
+                        text-decoration:none;
+                        color: #F12B2C;
+                        font-size: 22px;
+                     
+                    }
+                }
+    
+                .rating-with-stars{
+                    height:16px;
+                    width: calc(16px*5);
+                    
+                    .fill{
+                        width:0%;
+                        height:100%;
+                        background-image: url("../images/star_filled.png");
+                        background-size: auto 100%;
+                        background-repeat: repeat-x;
+                        margin-top: 10px;
+                        display:flex;         
+                    }
+                }
+
+                .tinv-wraper {
+                    position:relative;
+                    top: 200px;
+                    left:185px;
+                    margin:0;
+                
+                }
+    
+    
+                .button{
+                    margin-top: 10px;
+                    color: #F8F8F8;
+                    background-color: #00A544;    
+                    width: calc(100%);
+                    text-align: center;
+                    vertical-align: center;
+                    border-radius: 2px;
+                    padding: 5px;
+                    text-transform: uppercase;
+                    font-family: 'Roboto-Light';
+                    font-size: 12px;
+    
+                }
+    
+    }
+
+        }}}

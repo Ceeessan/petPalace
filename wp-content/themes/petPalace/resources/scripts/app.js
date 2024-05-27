@@ -1,40 +1,5 @@
 //___________________HEADER-CONTENT
 
-//Lägga till count på cart-ikonen
-jQuery(document).ready(function ($) {
-
-    function updateCartCount() {
-        var cartCount = parseInt($('.cart .count').text()) || 0;
-        $('.cart-count').text(cartCount);
-    }
-
-
-    $(document.body).on('wc_fragment_refresh updated_wc_div added_to_cart removed_from_cart', function () {
-        updateCartCount();
-    });
-
-    updateCartCount();
-
-    $(document).on('click', '.add-to-cart-button', function (e) {
-        e.preventDefault();
-
-        var productId = $(this).data('product-id');
-        var data = {
-            'action': 'add_to_cart',
-            'product_id': productId
-        };
-
-        $.post(wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart'), data, function (response) {
-            if (!response) {
-                return;
-            }
-
-            $(document.body).trigger('wc_fragment_refresh');
-        });
-    });
-});
-
-
 
 
 
