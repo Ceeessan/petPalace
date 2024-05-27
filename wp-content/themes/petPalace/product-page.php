@@ -16,6 +16,10 @@ function wrap_single_product_page_end() {
 add_action('woocommerce_before_main_content', 'wrap_single_product_page_start', 5);
 add_action('woocommerce_after_main_content', 'wrap_single_product_page_end', 50);
 
+//Tar bort kategorier, tags etc från single product page
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+
 // Ta bort WooCommerce produktbetyg
 function remove_woocommerce_product_rating() {
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);

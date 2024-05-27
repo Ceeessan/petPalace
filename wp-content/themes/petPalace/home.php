@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
 <div class="blog-content">
-    <h1>Pet Palaces Blogg</h1>
-    <p class="about-blog">Vi älskar alla djur och har samlat information om många av våra sällskapsdjur här. 
-        Få tips om allt från hur du får din kanin rumsren till skötselråd av hundar.</p>
+<?php
+    echo '<h1>Pet Palaces Blogg</h1>';
+    echo '<p class="about-blog">Vi älskar alla djur och har samlat information om många av våra sällskapsdjur här. 
+        Få tips om allt från hur du får din kanin rumsren till skötselråd av hundar.</p>';
+    ?>
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
