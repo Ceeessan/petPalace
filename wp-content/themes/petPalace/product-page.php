@@ -124,40 +124,4 @@ function add_related_products_carousel() {
 // Lägg till karusellen efter en enskild produkt med hjälp av WooCommerce hook
 add_action('woocommerce_after_single_product', 'add_related_products_carousel', 20);
 
-// Custom add to cart template
-function custom_woocommerce_template_single_add_to_cart() {
-    global $product;
-    ?>
-    <form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
-        <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-        <div class="quantity">
-            <button type="button" class="minus">-</button>
-            <input type="number" id="quantity" class="input-text qty text" step="1" min="1" max="<?php echo esc_attr( $product->get_max_purchase_quantity() ); ?>" name="quantity" value="1" title="<?php esc_attr_e( 'Qty', 'woocommerce' ); ?>" size="4" inputmode="numeric" />
-            <button type="button" class="plus">+</button>
-        </div>
-
-        <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-
-        <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
-    </form>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.quantity .minus').addEventListener('click', function() {
-                var qty = document.querySelector('.quantity input[type="number"]');
-                if (qty.value > 1) qty.value--;
-            });
-
-            document.querySelector('.quantity .plus').addEventListener('click', function() {
-                var qty = document.querySelector('.quantity input[type="number"]');
-                qty.value++;
-            });
-        });
-    </script>
-    <?php
-}
-
-// Lägg till custom add to cart template med hjälp av WooCommerce hook
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-add_action( 'woocommerce_single_product_summary', 'custom_woocommerce_template_single_add_to_cart', 30 );
-?>
