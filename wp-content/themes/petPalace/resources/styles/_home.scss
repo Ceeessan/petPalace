@@ -120,34 +120,40 @@
         margin-bottom: 100px;
         margin-top: 50px;
 
+        .popular-brands-text{
+            margin-bottom: 20px;
+        }
+
         .brand-container-homepage{
             display:flex;
             flex-direction: column;
             justify-content: center;
-            max-width: 800px;
             align-items:center; 
+            width: 80%;  
+            height: auto;
         
 
             .div-wrapper-homepage{
                 display:flex;
-                justify-content: center;
-                flex-wrap:wrap;
-                width: 100%;
+                justify-content: flex-start;
                 align-items: center;
+                width: 100%;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding: 10px 0;
                
          
             img{
                 width: 220px;
                 height: 150px;
-                margin: 5px;
+                
+                scroll-snap-align: center;
+                margin: 0 5px;
                
             }
 
             }
-           
-
-  
-    
+   
         }
 
     }
@@ -337,19 +343,13 @@
     .brands-homepage{
 
         .brand-container-homepage{
+        
 
             .div-wrapper-homepage{
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding: 10px 0;
+                
   
             img{
-                width: 50px;
-                height: 30px;
-                margin: 5px;
-                scroll-snap-align: center;
+                
             }
 
             }
