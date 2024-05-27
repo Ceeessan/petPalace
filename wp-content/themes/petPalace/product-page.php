@@ -98,7 +98,7 @@ function add_related_products_carousel() {
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var swiper = new Swiper('.swiper-container', {
-                    slidesPerView: 1,
+                    slidesPerView:2,
                     spaceBetween: 10,
                     pagination: {
                         el: '.swiper-pagination',
@@ -142,12 +142,6 @@ function custom_override_get_availability( $availability, $_product ) {
 }
 
 
-add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
-function custom_variation_price( $price, $product ) {
-     $price = '';
-     $price .= woocommerce_price($product->get_price());
-     return $price;
-}
 
 //Priset ändras beroende på val av attribut
 add_action( 'woocommerce_variable_add_to_cart', 'update_price_with_variation_price' );
@@ -165,3 +159,11 @@ function update_price_with_variation_price() {
       });
    " );
 }
+
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' ); 
+function woocommerce_add_to_cart_button_text_single() {
+    return __( 'Lägg i varukorg', 'woocommerce' ); 
+}
+
+
