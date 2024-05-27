@@ -133,6 +133,29 @@ function petPalace_add_star_rating() {
 add_action( 'woocommerce_after_shop_loop_item', 'petPalace_add_star_rating', 5 );
 
 
+//Ändrar knapp-funktionen
+// Ändra knapptexten på produktlistningssidan
+add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text');    // 2.1 +
+add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text'); // 2.1 +
+function custom_add_to_cart_text() {
+    return __('Köp', 'your-theme-slug'); // Ändra 'your-theme-slug' till ditt temas textdomän
+}
+
+// Omdirigera alltid till produktsidan när man klickar på "Köp"-knappen
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+add_action('woocommerce_after_shop_loop_item', 'custom_template_loop_add_to_cart', 10);
+
+function custom_template_loop_add_to_cart() {
+    global $product;
+
+    if ($product) {
+        $link = $product->get_permalink();
+        echo '<a href="' . esc_url($link) . '" class="button">' . __('Köp', 'your-theme-slug') . '</a>';
+    }
+}
+
+
+
 
 
 

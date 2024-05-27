@@ -48,3 +48,9 @@ jQuery(document).ready(function ($) {
         $('.custom-result-count').text(resultCountText);
     }
 });
+
+
+
+
+
+
