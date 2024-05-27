@@ -7,8 +7,6 @@
     margin-top: 8rem;
     
     font-family: 'Roboto-Regular';
-
-    padding-bottom: 80px;
     overflow: hidden;
 
     .custom-search-form-homepage{
@@ -162,20 +160,31 @@
 
 //produkterna
     .best-rated-products-homepage{
+  
+        .popular-products-homepage{
+            display:flex;
+            justify-content: center;
+            align-items:center;
+        }
+
         ul.products{
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             list-style: none;
+            width: 100%;
+            height: auto;
     
            li.product{
-                height: auto;
+                height: 450px;
                 padding: 10px;
                 box-sizing: border-box;
-                box-shadow: 0 0 2px rgba(0,0,0,0.2);
-                background-color: #ffffff;
+                width: calc(25% - 20px); 
+                // box-shadow: 0 0 2px rgba(0,0,0,0.2);
+                // background-color: #ffffff;
                 border-radius: 2px;
                 margin: 10px;
+                
     
                 img{ 
                     width: 100%;
@@ -193,9 +202,9 @@
                 }
     
                 .onsale{
-                    margin-top: 3px;
+                    margin-top: 8px;
                     margin-left: 3px;
-                    padding: 3px;
+                    padding: 2px;
                     position: absolute;
                     background-color: #F12B2C;
                     color: #F8F8F8;
@@ -303,59 +312,58 @@
   
     
     }
-    
-    }
 
+    @media (max-width: 760px) {
+        .sale-banner-homepage {
+            .banner-home-text {
+                font-size: 20px;
+            }
 
-
-
-    @media (max-width: 760px){
-
-
-        .main-content-homepage{
-
-            .sale-banner-homepage{ 
-  
-                .banner-home-text{
-                    font-size: 20px;
+            .banner-home-image {
+                .sale-banner-homepage-img {
+                    width: 70%;
+                    height: 200px;
+                    border-radius: 5px;
                 }
-        
-                .banner-home-image{
-                   
-        
-                    .sale-banner-homepage-img{
-                        width: 70%;
-                        height: 200px;
-                        border-radius: 5px;
-                    }
-        
-                }
-        
-        
-            }  
-
-
+            }
         }
 
 
+// Produkterna
+.best-rated-products-homepage {
+    .popular-products-homepage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-            //utvalda märken
-    .brands-homepage{
+    .product-scroll-wrapper {
+        overflow-x: auto;
+        width: 90%; // Justera bredden för att ge utrymme för alla produkter
+        margin:  auto; // Centrera container och lägg till marginaler
+    }
 
-        .brand-container-homepage{
+    ul.products {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: auto;
+        height: auto;
+
+        li.product {
+            height: 450px;
         
-
-            .div-wrapper-homepage{
-                
-  
-            img{
-                
-            }
-
-            }
-
+            // padding: 10px;
+            box-sizing: border-box;
+            border-radius: 2px;
+            // margin: 10px; // Ta bort marginal för att undvika att produkterna beskärs
+            flex-grow: 1; // Låt produkterna expandera jämnt för att ta upp all tillgänglig plats
+            min-width: 200px; // Sätt en minsta bredd för att undvika att produkterna krymper för mycket på mindre skärmar
         }
-
     }
+}
 
-    }
+
+    }}

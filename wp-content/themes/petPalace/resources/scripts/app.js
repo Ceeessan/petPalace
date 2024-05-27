@@ -21,6 +21,9 @@ jQuery(document).ready(function ($) {
 });
 
 
+
+
+
 //Scroll för relaterade produkter
 jQuery(document).ready(function ($) {
     $('.related-products ul.products').slick({
