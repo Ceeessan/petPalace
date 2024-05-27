@@ -21,20 +21,20 @@ function custom_product_search_form_shortcode() {
 add_shortcode( 'product_search_form', 'custom_product_search_form_shortcode' );
 
 
-//Meldem!!
+//Sale-banner!!
 function display_sale_banner_shortcode() {
-    // Hämta värdet för checkboxen för member-banner
-    $display_second_banner = get_option('display_second_banner');
+    // Hämta värdet för checkboxen för andra bannern
+    $display_second_banner = get_option('display_home_banner');
     
     // Om checkboxen är markerad, visas meddelandet
     if ($display_second_banner) {
-        $second_banner_message = get_option('second_banner_message');
+        $second_banner_message = get_option('second_banner_message'); // Uppdaterad variabel för meddelandet i andra bannern
         if (!empty($second_banner_message)) {
             ob_start(); ?>
-            <div class="member-div-homepage">
+            <div class="second-banner-div-homepage"> <!-- Uppdaterad klass för andra bannern -->
                 <div class="banner-text-homepage"><?php echo $second_banner_message; ?></div>
-                <div class="sale-banner-homepage-img-wrapper">
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/member-dog-human.png" class="sale-banner-homepage-img">
+                <div class="second-banner-homepage-img-wrapper"> <!-- Uppdaterad klass för bildvyn av andra bannern -->
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/second-banner-image.png" class="second-banner-homepage-img"> <!-- Uppdaterad sökväg till bild för andra bannern -->
                 </div>
             </div>
             <?php
@@ -42,7 +42,8 @@ function display_sale_banner_shortcode() {
         } 
     }
 }
-add_shortcode('member_banner', 'display_sale_banner_shortcode');
+add_shortcode('second_banner', 'display_sale_banner_shortcode'); 
+
 
 
 //Ikonerna!!

@@ -34,9 +34,43 @@ add_action('admin_menu', 'petPalace_add_settings');
 
 // Registrerar inställningar tillgängliga på sidan "Butik"
 function petPalace_add_settings_init(){
+
+    //Home-page första bannern
+    add_settings_section(
+        "butik_banner_home_text",
+        "Banner Home text",
+        "petPalace_add_banner_home_section",
+        "butik"
+    );
+    register_setting(
+        "butik",
+        "banner_home_message"
+    );
+    register_setting(
+        "butik",
+        "display_banner_home_text"
+    );
+    add_settings_field(
+        "banner_home_message",
+        "Banner Home Message",
+        "petPalace_section_setting",
+        "butik",
+        "butik_banner_home_text",
+        array(
+            "option_name" => "banner_home_message",
+            "option_type" => "text"
+        )
+    );
+    add_settings_field(
+        "display_banner_home_message",
+        "Display Banner Home Message",
+        "petPalace_display_banner_home_setting",
+        "butik",
+        "butik_banner_home_text"
+    );
    
     
-     // Lägger till inställningar för rea-bannern
+     // Lägger till inställningar för rea-bannern i listing
      add_settings_section(
         "butik_sale_banner",
         "Sale Banner",
@@ -69,7 +103,7 @@ function petPalace_add_settings_init(){
         "butik",
         "butik_sale_banner"
     );
-    // Lägger till inställningar för en andra banner
+    // Lägger till inställningar för en andra banner i listing
     add_settings_section(
         "butik_second_banner",
         "Second Banner",
@@ -130,7 +164,7 @@ function petPalace_add_settings_init(){
         )
     );
 
-     //Lägger till header-text
+     //Lägger till header-text 
      add_settings_section(
         "butik_header_text",
         "Header text",
@@ -186,6 +220,11 @@ function petPalace_add_header_section(){
     echo "<p>Inställningar för header</p>";
 }
 
+// Ritar ut sektionen för rea-bannern home
+function petPalace_add_banner_home_section(){
+    echo "<p>Inställningar för home-bannern</p>";
+}
+
 // Ritar ut sektionen för rea-bannern
 function petPalace_add_sale_banner_section(){
     echo "<p>Inställningar för rea-bannern</p>";
@@ -202,8 +241,12 @@ function petPalace_add_footer_section(){
 }
 
 
-
-
+// Ritar ut inställningsfältet för att välja om bannern i homepage ska visas eller inte
+function petPalace_display_banner_home_setting(){
+    $option_name = "display_banner_home_text"; // Uppdaterat till korrekt namn
+    $option_value = get_option($option_name);
+    echo '<input type="checkbox" id="' . $option_name . '" name="' . $option_name . '" value="1" ' . checked(1, $option_value, false) . '/>';
+}
 
 
 
