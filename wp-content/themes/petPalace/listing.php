@@ -212,18 +212,25 @@ add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 // Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
 function display_related_products() {
+    // Kontrollera om WooCommerce är aktiverat
     if ( class_exists( 'WooCommerce' ) ) {
-       
+        // Hämta global produktinformation
         global $product;
-        if ( $product && $product->get_id() ) {
+        
+        // Kontrollera om produkten finns och om relaterade produkter redan har laddats
+        if ( $product && $product->get_id() && ! did_action( 'displayed_related_products' ) && ! did_action( 'displayed_ajax_related_products' ) ) {
             $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
+            
+            // Om relaterade produkter finns
             if ( $related_products ) {
                 echo '<div class="container-related-listing">';
                 echo '<div class="related-products">';
                 echo '<h2>Relaterade produkter</h2>';
                 echo '<ul class="products">';
+                
                 foreach ( $related_products as $related_product_id ) {
                     $related_product = wc_get_product( $related_product_id );
+                    
                     if ( $related_product ) {
                         echo '<li class="product">';
                         echo '<a href="' . esc_url( get_permalink( $related_product->get_id() ) ) . '">';
@@ -231,6 +238,7 @@ function display_related_products() {
                         echo '<h3>' . $related_product->get_name() . '</h3>';
                         echo '<span class="price">' . $related_product->get_price_html() . '</span>';
                         echo '</a>';
+                        
                         // Lägg till knapp för att lägga till produkten i varukorgen
                         echo apply_filters( 'woocommerce_loop_add_to_cart_link', // Använd WooCommerce-filtret för att skapa knappens HTML
                             sprintf( '<a href="%s" data-quantity="1" class="button %s" %s>%s</a>',
@@ -240,12 +248,17 @@ function display_related_products() {
                                 esc_html( $related_product->add_to_cart_text() )
                             ),
                         $related_product ); // Skicka produktobjektet till filtret
+                        
                         echo '</li>';
                     }
                 }
+                
                 echo '</ul>';
                 echo '</div>';
                 echo '</div>';
+                
+                // Markera att relaterade produkter har visats
+                do_action( 'displayed_related_products' );
             }
         }
     }

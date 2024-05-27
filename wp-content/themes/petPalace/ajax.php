@@ -41,33 +41,44 @@ function add_custom_scripts() {
     wp_localize_script('custom-scripts', 'ajaxurl', admin_url('admin-ajax.php'));
 }
 
-add_action('wp_ajax_load_more_products', 'load_more_products');
-add_action('wp_ajax_nopriv_load_more_products', 'load_more_products');
 
+
+// AJAX-funktion för att ladda fler produkter
 // AJAX-funktion för att ladda fler produkter
 function load_more_products() {
     check_ajax_referer('petPalace_ajax_nonce', 'nonce');
 
-    $paged = $_POST['page'];
+    $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $excluded_ids = isset($_POST['excluded_ids']) ? array_map('intval', $_POST['excluded_ids']) : array();
+
     $args = array(
         'post_type' => 'product',
         'posts_per_page' => 10,
-        'paged' => $paged
+        'paged' => $paged,
+        'post__not_in' => $excluded_ids
     );
 
-    $products = new WP_Query($args);
+    $products_query = new WP_Query($args);
 
-    if ($products->have_posts()) :
-        while ($products->have_posts()) : $products->the_post();
+    ob_start(); // Starta buffert för att fånga HTML-koden för produkterna
+
+    if ($products_query->have_posts()) :
+        while ($products_query->have_posts()) : $products_query->the_post();
             wc_get_template_part('content', 'product');
         endwhile;
     else :
         wp_send_json(false);
     endif;
 
+    $products_html = ob_get_clean(); // Hämta HTML-koden från bufferten
+
     wp_reset_postdata();
-    wp_die();
+
+    wp_send_json($products_html); // Skicka HTML-koden för produkterna som AJAX-svar
 }
+add_action('wp_ajax_load_more_products', 'load_more_products');
+add_action('wp_ajax_nopriv_load_more_products', 'load_more_products');
+
 
 
 //Cart-count
