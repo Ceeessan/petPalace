@@ -10,10 +10,8 @@
                 text-decoration:none;
             }
         }
-        .product{
+        .product-content{
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
             .onsale{
                 position: absolute;
                 background-color: red;
@@ -22,74 +20,85 @@
                 margin: 20px;
                 border-radius: 6px;
             }
-            img{
-                background-color: #F9F6EC;
-                border-radius: 10px;
-                pointer-events: none; 
-            }
-            .summary{
-                margin-left: 3em;
-                display: flex;
-                flex-direction: column;
-                width: 600px;
-                .product_title{
-                    font-family: "Roboto-Bold";
-                    order: -2;
-                    font-size: 2rem;
-                    margin-bottom: 0.2em;
+            .woocommerce-product-gallery{
+                width: 50%;
+                img{
+                    background-color: #F9F6EC;
+                    border-radius: 10px;
+                    pointer-events: none; 
                 }
-                .rating-with-stars{
-                    height:25px;
-                    width: calc(25px*5);
-                    background-image: url("../images/star_unfilled.png");
-                    background-size: auto 100%;
-                    background-repeat: repeat-x;
-                    order: -1;
-                    margin-bottom: 2em;
-                
-                    .fill{
-                        width:0%;
-                        height:100%;
-                        background-image: url("../images/star_filled.png");
+            }
+
+            .product-details{
+                margin-left: 3em;
+                width: 60%;
+                .summary{
+                    display: flex;
+                    flex-direction: column;
+                    .product_title{
+                        font-family: "Roboto-Bold";
+                        order: -2;
+                        font-size: 2rem;
+                        margin-bottom: 0.2em;
+                    }
+                    .rating-with-stars{
+                        height:25px;
+                        width: calc(25px*5);
+                        background-image: url("../images/star_unfilled.png");
                         background-size: auto 100%;
                         background-repeat: repeat-x;
+                        order: -1;
+                        margin-bottom: 2em;
+                    
+                        .fill{
+                            width:0%;
+                            height:100%;
+                            background-image: url("../images/star_filled.png");
+                            background-size: auto 100%;
+                            background-repeat: repeat-x;
+                        }
+                    }
+    
+                    .price {
+                        font-size: 1.5em;
+                        bdi, span{font-family: "Roboto-Bold";}
+                        del {
+                            margin-right: 10px;
+                            .amount {
+                                line-height: 1.2;
+                                bdi, span{font-family: "Roboto-Bold";}
+                            }
+                        }
+                        ins {
+                            text-decoration: none;
+                            .amount {
+                                color: red;
+                                bdi, span{font-family: "Roboto-Bold";}
+                            }
+                        }
+                    }
+                    
+                    .tinv-wishlist{
+                        .tinvwl-icon-heart:before{
+                            font-size: 50px;
+                            position: absolute;
+                            background-color: white;
+                            border-radius: 50%;
+                            padding: 10px;
+                            border: 1px solid #b4b4b4;
+                        }
+                        a.tinvwl_add_to_wishlist_button{
+                            margin-left: -35%;
+                            margin-top: 12%;
+                        }
                     }
                 }
 
-                .price {
-                    font-size: 1.5em;
-                    bdi, span{font-family: "Roboto-Bold";}
-                    del {
-                        margin-right: 10px;
-                        .amount {
-                            line-height: 1.2;
-                            bdi, span{font-family: "Roboto-Bold";}
-                        }
-                    }
-                    ins {
-                        text-decoration: none;
-                        .amount {
-                            color: red;
-                            bdi, span{font-family: "Roboto-Bold";}
-                        }
-                    }
-                }
-                
-                .tinv-wishlist{
-                    .tinvwl-icon-heart:before{
-                        font-size: 50px;
-                        position: absolute;
-                        background-color: white;
-                        border-radius: 50%;
-                        padding: 10px;
-                        border: 1px solid #b4b4b4;
-                    }
-                    a.tinvwl_add_to_wishlist_button{
-                        margin-left: -32%;
-                        margin-top: 12%;
-                    }
+                .woocommerce-tabs{
+                    margin-top: -30%;
                 }
             }
+
 
             form.cart{
                 margin-top: 3em;
