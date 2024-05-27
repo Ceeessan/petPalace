@@ -95,17 +95,14 @@ function display_brands_shortcode(){
             <img src="<?php echo get_template_directory_uri(); ?>/resources/images/canary-bird.png" alt="Canary Bird">
             <img src="<?php echo get_template_directory_uri(); ?>/resources/images/bunny-brand.png" alt="Bunny Brand">
             <img src="<?php echo get_template_directory_uri(); ?>/resources/images/purrfect.png" alt="Purrfect">
-           
         </div>
     </div>
     <?php
     return ob_get_clean(); 
 }
-
-
 add_shortcode('display_brands', 'display_brands_shortcode');
 
-
+//Medlems-banner!!
 function display_member_banner_shortcode() {
 
     $display_banner_home_text = get_option('display_second_banner_home_text');

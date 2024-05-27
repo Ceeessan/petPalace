@@ -1,10 +1,4 @@
-//___________________HEADER-CONTENT
 
-
-
-
-
-//______________________________INNAN PRODUCT-CONTENT LISTING-PAGE
 
 //För ikonerna katt|hund|gnagare|fågel
 jQuery(document).ready(function ($) {
@@ -16,9 +10,16 @@ jQuery(document).ready(function ($) {
 });
 
 
+//Home-page scroll för Varumärken
+jQuery(document).ready(function ($) {
+    $('.div-wrapper-homepage').on('wheel', function (e) {
+        if (e.originalEvent.deltaY !== 0) {
+            e.preventDefault();
+            this.scrollLeft += e.originalEvent.deltaY;
+        }
+    });
+});
 
-
-//_____________________EFTER PRODUCT-CONTENT LISTING-PAGE
 
 //Scroll för relaterade produkter
 jQuery(document).ready(function ($) {

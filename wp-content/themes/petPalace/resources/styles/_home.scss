@@ -173,7 +173,7 @@
     
                 img{ 
                     width: 100%;
-                    background-color: #fffdfa;
+                    background-color: #F9F6EC;
                     border-radius: 5px;
                     height: 210px;
                     margin-bottom: 5px;
@@ -318,7 +318,7 @@
                    
         
                     .sale-banner-homepage-img{
-                        width: 60%;
+                        width: 70%;
                         height: 200px;
                         border-radius: 5px;
                     }
@@ -335,42 +335,27 @@
 
             //utvalda märken
     .brands-homepage{
-        display:flex;
-        justify-content: center;
-        margin-bottom: 100px;
-        margin-top: 50px;
 
         .brand-container-homepage{
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            // max-width: 800px;
-            align-items:center; 
-        
 
             .div-wrapper-homepage{
-                display:flex;
-                justify-content: center;
-                flex-wrap:wrap;
-                width: 20%;
-                align-items: center;
-               
-         
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding: 10px 0;
+  
             img{
                 width: 50px;
                 height: 30px;
                 margin: 5px;
-               
+                scroll-snap-align: center;
             }
 
             }
-           
 
-  
-    
         }
 
     }
-
 
     }
