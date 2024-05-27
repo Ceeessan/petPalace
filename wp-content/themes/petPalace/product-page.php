@@ -64,7 +64,7 @@ function add_related_products_carousel() {
         ?>
         <div class="container-related-listing">
             <div class="related-products">
-                <div class="related-products-title">Relaterade Produkter</div>
+                <div class="related-products-title">Du kanske också gillar</div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <?php
@@ -92,7 +92,7 @@ function add_related_products_carousel() {
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-cue">Svep för att se fler produkter</div>
+                <div class="swiper-cue"></div>
             </div>
         </div>
         <script>
@@ -128,4 +128,17 @@ function add_related_products_carousel() {
 // Lägg till karusellen efter en enskild produkt med hjälp av WooCommerce hook
 add_action('woocommerce_after_single_product', 'add_related_products_carousel', 20);
 
+
+add_filter( 'woocommerce_get_availability', 'custom_override_get_availability', 10, 2 );
+
+function custom_override_get_availability( $availability, $_product ) {
+    if ( $_product->is_in_stock() ) {
+        $availability['availability'] = '<i class="fa-solid fa-circle"></i> ' . __('I lager', 'woocommerce');
+    } elseif ( $_product->is_on_backorder() ) {
+        $availability['availability'] = '<i class="fa-solid fa-exclamation-circle"></i> ' . __('Restnoterad', 'woocommerce');
+    } else {
+        $availability['availability'] = '<i class="fa-solid fa-times-circle"></i> ' . __('Slut i lager', 'woocommerce');
+    }
+    return $availability;
+}
 
