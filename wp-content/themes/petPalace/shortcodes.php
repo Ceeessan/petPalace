@@ -23,32 +23,31 @@ add_shortcode( 'product_search_form', 'custom_product_search_form_shortcode' );
 
 //Sale-banner!!
 function display_sale_banner_shortcode() {
-    // Hämta värdet för checkboxen för andra bannern
-    $display_second_banner = get_option('display_home_banner');
+
+    $display_banner_home_text = get_option('display_banner_home_text');
     
-    // Om checkboxen är markerad, visas meddelandet
-    if ($display_second_banner) {
-        $second_banner_message = get_option('second_banner_message'); // Uppdaterad variabel för meddelandet i andra bannern
-        if (!empty($second_banner_message)) {
+  
+    if ($display_banner_home_text) {
+        $banner_home_message = get_option('banner_home_message'); 
+        if (!empty($banner_home_message)) {
             ob_start(); ?>
-            <div class="second-banner-div-homepage"> <!-- Uppdaterad klass för andra bannern -->
-                <div class="banner-text-homepage"><?php echo $second_banner_message; ?></div>
-                <div class="second-banner-homepage-img-wrapper"> <!-- Uppdaterad klass för bildvyn av andra bannern -->
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/second-banner-image.png" class="second-banner-homepage-img"> <!-- Uppdaterad sökväg till bild för andra bannern -->
-                </div>
+            <div class="banner-home-text"><?php echo $banner_home_message; ?></div>
+            <div class="banner-home-image">
+                <img class="sale-banner-homepage-img" src="<?php echo get_template_directory_uri(); ?>/resources/images/home-banner-sale.png" alt="Sale Banner Image">
             </div>
             <?php
             return ob_get_clean();
         } 
     }
 }
-add_shortcode('second_banner', 'display_sale_banner_shortcode'); 
+add_shortcode('sale_home_banner', 'display_sale_banner_shortcode');
+
 
 
 
 //Ikonerna!!
 function display_icons_filter_shortcode() {
-    ob_start(); // Starta output bufferten
+    ob_start(); 
     ?>
     <div class="icons-filter-div">
 
@@ -74,16 +73,16 @@ function display_icons_filter_shortcode() {
 
     </div>
     <?php
-    return ob_get_clean(); // Returnera innehållet från output bufferten och stäng bufferten
+    return ob_get_clean(); 
 }
 
-// Registrera shortcode
+
 add_shortcode('display_icons', 'display_icons_filter_shortcode');
 
 
 //Populära märken
 function display_brands_shortcode(){
-    ob_start(); // Starta output bufferten
+    ob_start(); 
     ?>
     <div class="brand-container-homepage">
         <div>
@@ -100,13 +99,29 @@ function display_brands_shortcode(){
         </div>
     </div>
     <?php
-    return ob_get_clean(); // Returnera innehållet från output bufferten och stäng bufferten
+    return ob_get_clean(); 
 }
 
-// Registrera shortcode
+
 add_shortcode('display_brands', 'display_brands_shortcode');
 
 
+function display_member_banner_shortcode() {
 
-
-
+    $display_banner_home_text = get_option('display_second_banner_home_text');
+    
+  
+    if ($display_banner_home_text) {
+        $banner_home_message = get_option('second_banner_home_message'); 
+        if (!empty($banner_home_message)) {
+            ob_start(); ?>
+            <div class="second-banner-home-text"><?php echo $banner_home_message; ?></div>
+            <div class="banner-home-image">
+                <img class="sale-banner-homepage-img" src="<?php echo get_template_directory_uri(); ?>/resources/images/member-banner-home.png" alt="Sale Banner Image">
+            </div>
+            <?php
+            return ob_get_clean();
+        } 
+    }
+}
+add_shortcode('member_home_banner', 'display_member_banner_shortcode');
