@@ -128,17 +128,40 @@ function add_related_products_carousel() {
 // Lägg till karusellen efter en enskild produkt med hjälp av WooCommerce hook
 add_action('woocommerce_after_single_product', 'add_related_products_carousel', 20);
 
-
+//Lägger till lagerstatus med ikoner
 add_filter( 'woocommerce_get_availability', 'custom_override_get_availability', 10, 2 );
-
 function custom_override_get_availability( $availability, $_product ) {
     if ( $_product->is_in_stock() ) {
-        $availability['availability'] = '<i class="fa-solid fa-circle"></i> ' . __('I lager', 'woocommerce');
+        $availability['availability'] = '<i class="fa-solid fa-circle" style="color:#00A544;"></i> ' . __('I lager', 'woocommerce');
     } elseif ( $_product->is_on_backorder() ) {
-        $availability['availability'] = '<i class="fa-solid fa-exclamation-circle"></i> ' . __('Restnoterad', 'woocommerce');
+        $availability['availability'] = '<i class="fa-solid fa-exclamation-circle" style="color:orange;"></i> ' . __('Restnoterad', 'woocommerce');
     } else {
-        $availability['availability'] = '<i class="fa-solid fa-times-circle"></i> ' . __('Slut i lager', 'woocommerce');
+        $availability['availability'] = '<i class="fa-solid fa-times-circle" style="color:red;"></i> ' . __('Slut i lager', 'woocommerce');
     }
     return $availability;
 }
 
+
+add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+function custom_variation_price( $price, $product ) {
+     $price = '';
+     $price .= woocommerce_price($product->get_price());
+     return $price;
+}
+
+//Priset ändras beroende på val av attribut
+add_action( 'woocommerce_variable_add_to_cart', 'update_price_with_variation_price' );
+  
+function update_price_with_variation_price() {
+   global $product;
+   $price = $product->get_price_html();
+   wc_enqueue_js( "     
+      $(document).on('found_variation', 'form.cart', function( event, variation ) {   
+         if(variation.price_html) $('.summary > p.price').html(variation.price_html);
+         $('.woocommerce-variation-price').hide();
+      });
+      $(document).on('hide_variation', 'form.cart', function( event, variation ) {   
+         $('.summary > p.price').html('" . $price . "');
+      });
+   " );
+}
