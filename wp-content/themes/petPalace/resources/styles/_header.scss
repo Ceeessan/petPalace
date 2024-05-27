@@ -89,6 +89,21 @@ header {
     }
 }
 
+
+
+.cart-count{
+    background-color: #e2c153; 
+    color: #272727; 
+    border-radius: 50%;
+    padding: 0.1em 0.4em;
+    font-size: 0.8em;
+    position: absolute;
+    top: 18px; 
+    right: 15px; 
+    display: inline-block;
+}
+
+
 @media screen and (max-width: 767px) {
     header {
         .header-container {

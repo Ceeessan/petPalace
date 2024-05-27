@@ -61,14 +61,18 @@
         
             <div class="secondary-header-menu">
                 <div class="header-icons">
+
                     <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" title="<?php _e('My Account', 'your-theme-slug'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/Ikon-gubbe.png" alt="My Account">
                     </a>
+
                     <a href="https://petpalace.test/wishlist/" title="<?php _e('Wishlist', 'your-theme-slug'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ikon-heart.png" alt="Wishlist">
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ikon-heart.png" alt="Wishlist">               
                     </a>
+
                     <a href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'your-theme-slug'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ikon-shoppingbag.png" alt="Shopping Cart">
+                        <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
                     </a>
                 </div>
             </div>
