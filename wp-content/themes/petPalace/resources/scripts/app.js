@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//Scroll för relaterade produkter
+//Scroll för relaterade produkter i listing!!
 jQuery(document).ready(function ($) {
     $('.related-products ul.products').slick({
         slidesToShow: 4, // Visa minst 2 produkter
@@ -75,21 +75,3 @@ jQuery(document).ready(function ($) {
         ]
     });
 });
-
-
-
-//_____________________________________ EFTER PRODUCT-CONTENT LISTING-PAGE
-
-
-//Uppdaterar varukorgen automatiskt utan att behöva klicka på "Update Cart"
-jQuery( function( $ ) {
-    let timeout;
-    $('.woocommerce').on('change', 'input.qty', function(){
-        if ( timeout !== undefined ) {
-            clearTimeout( timeout );
-        }
-        timeout = setTimeout(function() {
-            $("[name='update_cart']").trigger("click");
-        }, 500 ); 
-    });
-} );

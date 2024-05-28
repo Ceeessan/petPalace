@@ -54,3 +54,9 @@ function change_comment_form_text( $fields ) {
 }
 add_filter( 'comment_form_defaults', 'change_comment_form_text' );
 
+
+
+
+
+
+
