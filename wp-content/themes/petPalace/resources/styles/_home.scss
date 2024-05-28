@@ -172,12 +172,13 @@
             flex-wrap: wrap;
             justify-content: center;
             list-style: none;
+            height: auto;
     
            li.product{
                 height: auto;
                 padding: 10px;
                 box-sizing: border-box;
-                // box-shadow: 0 0 2px rgba(0,0,0,0.2);
+
                 background-color: #ffffff;
                 border-radius: 2px;
                 margin: 10px;
@@ -283,8 +284,12 @@
         display:flex;
         flex-direction: column;
         background-color: #FEF6E1;
+        justify-content: center;
+        text-align:center;
+        margin:auto;
         align-items:center;
         margin-bottom: 100px;
+        width:90%;
         margin-top: 50px;
 
         .second-banner-home-text{
@@ -316,10 +321,17 @@
     }
 
     .info-homepage{
+        display:flex;
+        justify-content:center;
+        text-align:center;
+        width: 90%;
+        margin:auto;
         .img-txt-containter-homepage{
+          
             display:flex;
-            flex-direction: row;      
-            background-color: #beceeb;
+            flex-direction: row;
+            justify-content:center;      
+            background-color: #e2fbee;
     
             margin-bottom: 30px;
 
@@ -394,7 +406,7 @@
             .img-txt-containter-homepage{
                 display:flex;
                 flex-direction: column;      
-                background-color: #beceeb;
+                // background-color: #beceeb;
         
                 margin-bottom: 20px;
         
