@@ -247,9 +247,34 @@
                     align-items:center;
                     margin-top: 20px;
                 }
-                .woocommerce-pagination{
-                       display:none;
+               
+
+                .woocommerce-pagination {
+                    margin-top: 20px;
+                    margin-bottom: 50px;
+                    display:flex;
+                    justify-content: center;
+              
+
+              ul{
+                display:flex;
+                flex-direction: row;
+                list-style:none;
+
+                li{
+                    margin: 4px;
+                    color: #272727;
+
+                    a{
+                        color: #272727;
                     }
+                }
+              }
+
+                
+       
+                }
+                
     
     
                     .button-container{
@@ -310,7 +335,7 @@
                     margin: 20px 0;
 
                     .related-products {
-                        // position: relative;
+                       
 
                           
                      h2 {

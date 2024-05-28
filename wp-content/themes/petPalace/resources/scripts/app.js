@@ -1,4 +1,10 @@
 
+//Cart-count!!
+
+
+
+
+
 
 //För ikonerna katt|hund|gnagare|fågel
 jQuery(document).ready(function ($) {
@@ -38,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//Scroll för relaterade produkter
+//Scroll för relaterade produkter i listing!!
 jQuery(document).ready(function ($) {
     $('.related-products ul.products').slick({
         slidesToShow: 4, // Visa minst 2 produkter
@@ -76,6 +82,3 @@ jQuery(document).ready(function ($) {
     });
 });
 
-
-
-//_____________________________________ EFTER PRODUCT-CONTENT LISTING-PAGE

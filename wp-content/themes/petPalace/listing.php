@@ -22,7 +22,7 @@ function display_sale_banner(){
     
     $display_sale_banner = get_option('display_sale_banner');
     
-    // Om checkboxen är markerad, visas meddelandet
+  
     if ($display_sale_banner) {
         $store_message = get_option('store_message');
         if (!empty($store_message)) {
@@ -38,7 +38,7 @@ function display_sale_banner(){
 add_action( 'woocommerce_before_shop_loop', 'display_sale_banner');
 
 
-//Har tagit bort och lägger nu till visade resultat längre ner på sidan. 
+//Har tagit bort visade resultat på sidan. 
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 
@@ -69,7 +69,7 @@ function display_icons_filter() {
 
     </div>';
 
-    // Lägg till en div där produkterna ska visas
+  
     echo '<div id="product-list"></div>';
 }
 
@@ -175,40 +175,12 @@ function custom_template_loop_add_to_cart() {
 
 //____________________SLUTET EFTER PRODUCTS-CONTENT PÅ LISTING_PAGE
 
-// Funktion för att visa resultaträknare och laddningsknapp
-function display_result_count_and_button() {
-    global $wp_query;
-    if (is_shop() || is_product_category() || is_product_tag()) {
-        $total_products = $wp_query->found_posts;
-        $products_per_page = $wp_query->get('posts_per_page');
-        $current_count = $wp_query->post_count;
-
-        if ($total_products > $products_per_page) {
-            echo '<div class="button-container">';
-            echo '<button class="load-more-button" id="load-more"> + </button>';
-            echo '</div>';
-        }
-
-        echo '<div class="custom-result-count">';
-        echo 'Visar ' . $current_count . ' av ' . $total_products . ' produkter';
-        echo '</div>';
-
- 
-    }
-}
-add_action('woocommerce_after_shop_loop', 'display_result_count_and_button');
-
-// Ta bort standardresultaträknaren från sin ursprungliga plats
-remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
-
-
-
 // läggs till text för "medlem" i settings.
 function display_member_banner() {
-    // Hämta värdet för checkboxen för member-banner
+
     $display_second_banner = get_option('display_second_banner');
     
-    // Om checkboxen är markerad, visas meddelandet
+ 
     if ($display_second_banner) {
         $second_banner_message = get_option('second_banner_message');
         if (!empty($second_banner_message)) {
@@ -225,18 +197,17 @@ add_action('woocommerce_after_shop_loop', 'display_member_banner');
 
 
 
-// Här lägger jag in "relaterade produkter" på sidan för ytterligare funktionalitet till listing-page.
+// Lägger in "relaterade produkter" för ytterligare funktionalitet till listing-page.
 function display_related_products() {
-    // Kontrollera om WooCommerce är aktiverat
+    
     if ( class_exists( 'WooCommerce' ) ) {
-        // Hämta global produktinformation
+       
         global $product;
         
-        // Kontrollera om produkten finns och om relaterade produkter redan har laddats
+     
         if ( $product && $product->get_id() && ! did_action( 'displayed_related_products' ) && ! did_action( 'displayed_ajax_related_products' ) ) {
-            $related_products = wc_get_related_products( $product->get_id(), 4 ); // Hämta upp till 4 relaterade produkter
-            
-            // Om relaterade produkter finns
+            $related_products = wc_get_related_products( $product->get_id(), 4 ); 
+           
             if ( $related_products ) {
                 echo '<div class="container-related-listing">';
                 echo '<div class="related-products">';
@@ -254,15 +225,16 @@ function display_related_products() {
                         echo '<span class="price">' . $related_product->get_price_html() . '</span>';
                         echo '</a>';
                         
-                        // Lägg till knapp för att lägga till produkten i varukorgen
-                        echo apply_filters( 'woocommerce_loop_add_to_cart_link', // Använd WooCommerce-filtret för att skapa knappens HTML
+                       
+                        echo apply_filters( 'woocommerce_loop_add_to_cart_link', 
+
                             sprintf( '<a href="%s" data-quantity="1" class="button %s" %s>%s</a>',
                                 esc_url( $related_product->add_to_cart_url() ),
                                 $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
                                 $related_product->get_stock_status() == 'out-of-stock' ? 'disabled' : '',
                                 esc_html( $related_product->add_to_cart_text() )
                             ),
-                        $related_product ); // Skicka produktobjektet till filtret
+                        $related_product ); 
                         
                         echo '</li>';
                     }
@@ -272,7 +244,7 @@ function display_related_products() {
                 echo '</div>';
                 echo '</div>';
                 
-                // Markera att relaterade produkter har visats
+             
                 do_action( 'displayed_related_products' );
             }
         }
