@@ -55,27 +55,17 @@ add_filter('woocommerce_shipping_estimate_html', 'shipping_estimate_html');
 
 
 //Uppdaterar varukorgen automatiskt utan att behöva klicka på "Update Cart"
-add_action( 'wp_head', 'ecommercehints_hide_update_cart_button' );
-function ecommercehints_hide_update_cart_button() { ?>
+function ecommercehints_enqueue_custom_scripts() {
+   wp_enqueue_script(
+       'ecommercehints-custom-cart', 
+       get_template_directory_uri() . '/resources/scripts/app.js', 
+       array('jquery'), 
+       null, 
+       true
+   );
+}
+add_action('wp_enqueue_scripts', 'ecommercehints_enqueue_custom_scripts');
 
-<?php }
-
-add_action( 'wp_footer', 'ecommercehints_update_cart_on_quantity_change');
-function ecommercehints_update_cart_on_quantity_change() { ?>
-	<script>
-	jQuery( function( $ ) {
-		let timeout;
-		$('.woocommerce').on('change', 'input.qty', function(){
-			if ( timeout !== undefined ) {
-				clearTimeout( timeout );
-			}
-			timeout = setTimeout(function() {
-				$("[name='update_cart']").trigger("click");
-			}, 500 ); 
-		});
-	} );
-	</script>
-<?php }
 
 //flyttat på email i order received page
 add_filter('woocommerce_thankyou_order_received_text', 'my_order_received_text', 10, 2);
@@ -103,3 +93,6 @@ function order_received_item_thumbnail_image( $item_name, $item, $is_visible ) {
 
     return $item_name;
 }
+
+//Tar bort texten om att varukorgen är uppdaterad
+add_filter('woocommerce_add_message', '__return_false');

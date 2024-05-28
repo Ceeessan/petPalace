@@ -79,3 +79,17 @@ jQuery(document).ready(function ($) {
 
 
 //_____________________________________ EFTER PRODUCT-CONTENT LISTING-PAGE
+
+
+//Uppdaterar varukorgen automatiskt utan att behöva klicka på "Update Cart"
+jQuery( function( $ ) {
+    let timeout;
+    $('.woocommerce').on('change', 'input.qty', function(){
+        if ( timeout !== undefined ) {
+            clearTimeout( timeout );
+        }
+        timeout = setTimeout(function() {
+            $("[name='update_cart']").trigger("click");
+        }, 500 ); 
+    });
+} );
