@@ -219,7 +219,9 @@ button#place_order{
 @media screen and (max-width: 767px) {
     .cart-title{
         font-size: 16px;
+        margin: inherit;
         margin-top: 5em;
+
     }
 
 

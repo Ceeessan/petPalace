@@ -69,7 +69,6 @@
 
                     <a href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'your-theme-slug'); ?>">
                     <div class="header-cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></div>
-
                         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ikon-shoppingbag.png" alt="Shopping Cart">
                     </a>
 
