@@ -1,15 +1,4 @@
 
-
-//För ikonerna katt|hund|gnagare|fågel
-jQuery(document).ready(function ($) {
-    $('.icon-animals').on('click', function () {
-        var tag = $(this).data('tag');
-        var url = ajax_variables.siteUrl + '/product-tag/' + tag;
-        window.location.href = url;
-    });
-});
-
-
 //Home-page scroll för Varumärken
 jQuery(document).ready(function ($) {
     $('.div-wrapper-homepage').on('wheel', function (e) {
