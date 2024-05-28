@@ -19,6 +19,7 @@
                 padding: 10px;
                 margin: 20px;
                 border-radius: 6px;
+                z-index: 1;
             }
             .woocommerce-product-gallery{
                 position: relative;
@@ -219,7 +220,7 @@
                     button{
                         background-color: #f1f1f1;
                         border: none;
-                        padding: 8px 15px;
+                        padding: 8.5px 15px;
                         font-size: 16px;
                         cursor: pointer;
                         &:hover{    
@@ -386,4 +387,24 @@
             }
         }
 }
+
+.swiper-container{
+    .swiper-wrapper{
+        .swiper-slide{
+            a{
+                h2{
+                    font-size: 12px;
+                    margin-top: unset !important;
+                }
+            }
+            .price{
+                font-weight: bold;
+                font-size: 12px;
+                ins{color: red; text-decoration: none;}               
+            }
+        }
+    }
+}
+
+
 }
