@@ -68,9 +68,29 @@ function display_icons_filter() {
     </div>
 
     </div>';
+
+    // Lägg till en div där produkterna ska visas
+    echo '<div id="product-list"></div>';
 }
 
 add_action('woocommerce_before_shop_loop', 'display_icons_filter');
+
+//För att få fram Ikonernas funktionalitet
+function filter_products_by_query_param($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
+        if (isset($_GET['product_tag']) && !empty($_GET['product_tag'])) {
+            $query->set('tax_query', array(
+                array(
+                    'taxonomy' => 'product_tag',
+                    'field' => 'slug',
+                    'terms' => sanitize_text_field($_GET['product_tag']),
+                ),
+            ));
+        }
+    }
+}
+add_action('pre_get_posts', 'filter_products_by_query_param');
+
 
 
 
