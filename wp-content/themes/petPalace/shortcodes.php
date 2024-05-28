@@ -140,9 +140,9 @@ function info_about_animals_and_store() {
         <div class="txt-homepage">
         <h3 class="header-txt-homepage"> Vi älskar djur och djur älskar oss. </h3>
         <p class="txt-homepage-text"> 
-        PetPalace är en del av Nordens största husdjurskoncept och finns med dig och ditt husdjur genom hela livet. Vi har över 20 butiker runt om i Sverige och du och ditt husdjur är alltid välkomna att besöka oss i er närmaste butik eller på petPalaceab.test. Vi har över 30 års erfarenhet och vår kunniga personal har en gedigen kunskap inom olika områden som rör våra husdjur. Du är alltid välkommen att komma med frågor och funderingar, så hjälper vi dig att hitta vad du och ditt husdjur behöver.
+        PetPalace är en del av Nordens största husdjurskoncept och finns med dig och ditt husdjur genom hela livet. Vi har över 20 butiker runt om i Sverige och du och ditt husdjur är alltid välkomna att besöka oss i er närmaste butik eller på petpalaceab.site. Vi har över 30 års erfarenhet och vår kunniga personal har en gedigen kunskap inom olika områden som rör våra husdjur. Du är alltid välkommen att komma med frågor och funderingar, så hjälper vi dig att hitta vad du och ditt husdjur behöver.
     <br><br>
-        Hos Arken Zoo hittar ni ett brett sortiment av hundmat, kattmat, kattsand och djurtillbehör till våra vanligaste husdjur. På petPalaceab.test har vi dessutom veterinärfoder till hund och veterinärfoder till katt. Vi säljer endast produkter från noga utvalda varumärken som håller en hög kvalité - för att ditt husdjur förtjänar det bästa! Som kund hos PetPalace kan du känna dig trygg oavsett om du handlar i någon av våra butiker eller på petPalaceab.test.
+        Hos PetPalace hittar ni ett brett sortiment av hundmat, kattmat, kattsand och djurtillbehör till våra vanligaste husdjur. På petpalaceab.site har vi dessutom veterinärfoder till hund och veterinärfoder till katt. Vi säljer endast produkter från noga utvalda varumärken som håller en hög kvalité - för att ditt husdjur förtjänar det bästa! Som kund hos PetPalace kan du känna dig trygg oavsett om du handlar i någon av våra butiker eller på petpalaceab.site.
         </p>
         </div>
     </div>
