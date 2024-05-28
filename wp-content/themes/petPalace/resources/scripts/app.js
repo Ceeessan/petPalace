@@ -21,6 +21,20 @@ jQuery(document).ready(function ($) {
 });
 
 
+//Ikonerna!!
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.icon-animals').forEach(function (icon) {
+        icon.addEventListener('click', function () {
+            var tag = this.getAttribute('data-tag');
+            if (tag) {
+                var currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('product_tag', tag);
+                window.location.href = currentUrl.toString();
+            }
+        });
+    });
+});
+
 
 
 
