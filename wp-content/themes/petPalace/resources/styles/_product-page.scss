@@ -48,8 +48,8 @@
                         color: #3B644C;
                     }
                     .price {
-                        font-size: 1.5em;
-                        bdi, span{font-family: "Roboto-Bold";}
+                        font-size: 24px;
+                        bdi, span{font-family: "Roboto-Bold"; }
                         del {
                             margin-right: 10px;
                             .amount {
@@ -315,11 +315,10 @@
             flex-direction: column;
             .onsale{
                 position: absolute;
-                background-color: red;
-                color: white;
                 padding: 10px;
-                margin: 20px;
+                margin: 15px;
                 border-radius: 6px;
+                font-size: 12px;
             }
             .woocommerce-product-gallery{
                 img{
@@ -338,7 +337,7 @@
                         margin-top: 1em;
                         font-size: 14px;
                     }
-                    .price{font-size: 1.3em;}
+
                     form.cart{
                         margin: 0;
                         .quantity{
