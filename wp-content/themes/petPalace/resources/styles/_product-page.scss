@@ -341,6 +341,13 @@
 
                     form.cart{
                         margin: 0;
+                        .cfvsw-variation-disable-logic{
+                            .label{ 
+                                margin-top: 1em;                       
+                                text-transform: capitalize;
+                                font-size: 14px;
+                            }
+                        }
                         .quantity{
                             border-radius: 5px;
                             input{
