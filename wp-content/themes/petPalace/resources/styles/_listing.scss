@@ -309,7 +309,7 @@
 
                 
         .member-div-listing{
-            margin-top: 10px;
+            margin-top: 80px;
             margin-bottom: 10px;
             width: calc(100% - 20px);
             position:relative;
@@ -339,6 +339,7 @@
             // "Related" -produkter
                 .container-related-listing {
                     margin: 20px 0;
+                    
 
                     .related-products {
                        
@@ -346,7 +347,8 @@
                           
                      h2 {
                     text-align: center;
-                    margin-bottom: 20px;
+                    margin-top: 80px;
+                    margin-bottom: 50px;
                 }
 
                 ul.products {
