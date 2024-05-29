@@ -204,8 +204,11 @@
     
                 .onsale{
                     position: absolute;
+                    margin-right: 117px;
                     top: 22px;
-                    right: 117px;
+                    right:unset;
+                    margin-left: 6px;
+                    // right: 117px;
                     height: 5px;
                     min-height: 25px;
                     line-height:25px;
