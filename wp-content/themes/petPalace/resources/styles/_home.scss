@@ -181,7 +181,7 @@
                 height: auto;
                 padding: 10px;
                 box-sizing: border-box;
-
+     
                 background-color: #ffffff;
                 border-radius: 2px;
                 margin: 10px;
@@ -190,7 +190,7 @@
                     width: 100%;
                     background-color: #F9F6EC;
                     border-radius: 5px;
-                    height: 210px;
+                    height: 200px;
                     margin-bottom: 5px;
                 }
     
@@ -199,13 +199,16 @@
                     display:flex;
                     flex-direction: column;
                     
+                    
                 }
     
                 .onsale{
-                    margin-top: 3px;
-                    margin-left: 3px;
-                    padding: 3px;
                     position: absolute;
+                    top: 22px;
+                    right: 117px;
+                    height: 5px;
+                    min-height: 25px;
+                    line-height:25px;
                     background-color: #F12B2C;
                     color: #F8F8F8;
                     border-radius: 2px;
