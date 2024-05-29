@@ -178,6 +178,9 @@
             height: auto;
     
            li.product{
+                display: flex;
+                flex-direction: column;
+                margin-top: auto;
                 height: auto;
                 padding: 10px;
                 box-sizing: border-box;
@@ -208,7 +211,6 @@
                     top: 22px;
                     right:unset;
                     margin-left: 6px;
-                    // right: 117px;
                     height: 5px;
                     min-height: 25px;
                     line-height:25px;
@@ -232,6 +234,7 @@
                     color: #5b5b5b;
                     font-size: 18px;
                     list-style: none;
+                    margin-top:auto;
     
     
                     ins{
@@ -245,6 +248,8 @@
                 .rating-with-stars{
                     height:16px;
                     width: calc(16px*5);
+                    margin-top: auto;
+                    margin-bottom: 15px;
                     
                     .fill{
                         width:0%;
@@ -267,7 +272,7 @@
     
     
                 .button{
-                    margin-top: 10px;
+                    margin-top: auto;
                     color: #F8F8F8;
                     background-color: #00A544;    
                     width: calc(100%);

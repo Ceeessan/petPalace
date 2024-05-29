@@ -143,6 +143,9 @@
             list-style: none;
     
            li.product{
+                display: flex;
+                flex-direction: column;
+                margin-top: auto;
                 height: auto;
                 padding: 10px;
                 box-sizing: border-box;
@@ -204,6 +207,8 @@
                 .rating-with-stars{
                     height:16px;
                     width: calc(16px*5);
+                    margin-top: auto;
+                    margin-bottom: 15px;
                     
                     .fill{
                         width:0%;
@@ -226,7 +231,8 @@
     
     
                 .button{
-                    margin-top: 10px;
+                    
+                    margin-top: auto;
                     color: #F8F8F8;
                     background-color: #00A544;    
                     width: calc(100%);
